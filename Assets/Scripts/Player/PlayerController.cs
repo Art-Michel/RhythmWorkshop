@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     float _easeInValue;
     [SerializeField] float _easeInSpeed;
 
+    [SerializeField] GameObject _playerBody;
+
     private void Awake()
     {
         _inputs = new PlayerActionMap();
@@ -61,6 +63,9 @@ public class PlayerController : MonoBehaviour
     {
         _wantedDirection = _inputs.Movement.Move.ReadValue<Vector2>();
         _charaCon.Move(_wantedDirection * _speed * _easeInValue * Time.deltaTime);
+
+
+        _playerBody.transform.up = _wantedDirection;
     }
 
     #region disable inputs on Player disable to avoid weird inputs
