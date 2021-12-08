@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,11 +9,6 @@ public class PlayerNotes : MonoBehaviour
     [SerializeField] Transform _southButton;
     [SerializeField] Transform _westButton;
     [SerializeField] Transform _eastButton;
-
-    [SerializeField] Transform _northSpawner;
-    [SerializeField] Transform _southSpawner;
-    [SerializeField] Transform _westSpawner;
-    [SerializeField] Transform _eastSpawner;
 
     [SerializeField] Transform _temporaryNote;
 
@@ -32,17 +26,14 @@ public class PlayerNotes : MonoBehaviour
     {
         CheckDistance(_temporaryNote.position, _northButton.position);
     }
-
     private void SouthNotePressed(InputAction.CallbackContext obj)
     {
         CheckDistance(_temporaryNote.position, _southButton.position);
     }
-
     private void EastNotePressed(InputAction.CallbackContext obj)
     {
         CheckDistance(_temporaryNote.position, _eastButton.position);
     }
-
     private void WestNotePressed(InputAction.CallbackContext obj)
     {
         CheckDistance(_temporaryNote.position, _westButton.position);
