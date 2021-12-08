@@ -118,7 +118,7 @@ public class @PlayerActionMap : IInputActionCollection, IDisposable
                 {
                     ""name"": ""Left Stick"",
                     ""id"": ""a82904aa-2ce2-438c-940f-cc4ee73e6060"",
-                    ""path"": ""2DVector"",
+                    ""path"": ""2DVector(mode=2)"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
