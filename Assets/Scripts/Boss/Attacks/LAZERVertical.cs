@@ -1,59 +1,62 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NaughtyAttributes;
 
 public class LAZERVertical : MonoBehaviour
 {
     [SerializeField] Pool pool;
-    float spawnRate;
-    [SerializeField] float maxRate;
     [SerializeField] Transform spawn;
+    Transform spawnPoint;
+
     [SerializeField] int length;
     [SerializeField] Vector3 addPos;
 
+    [SerializeField] float despawn;
+    [SerializeField] float maxRate;
+
     GameObject LAZERBoss;
 
-    [SerializeField] bool canShoot;
     [SerializeField] List<GameObject> listLazer = new List<GameObject>();
 
-    public void Start()
+    private void Start()
     {
-    }
-
-    private void Update()
-    {
-        if (canShoot == true)
-        {
-            Shoot();
-        }
-
-        spawnRate -= Time.deltaTime;
+        spawnPoint = spawn;
     }
 
     void SpawnBullet()
     {
         LAZERBoss = pool.Get();
         LAZERBoss.SetActive(true);
-        LAZERBoss.transform.position = spawn.position;
+        LAZERBoss.transform.position = spawnPoint.position;
         LAZERBoss.GetComponent<LAZER>().Spawn(pool);
         listLazer.Add(LAZERBoss);
     }
 
-    void Return()
-    {
-        LAZERBoss.GetComponent<LAZER>().Return(pool);
-    }
-
-    void Shoot()
+    [Button]
+    IEnumerator Shoot()
     {
         for (int i = 0; i < length; i++)
         {
-            if (spawnRate <= 0)
-            {
-                spawnRate = maxRate;
-                SpawnBullet();
-                spawn.position += addPos;
-            }
+            SpawnBullet();
+            spawnPoint.position += addPos;
+
+            yield return new WaitForSeconds(maxRate);
+            StartCoroutine(ReturnLazer());
         }
+        spawnPoint=spawn;
+        yield return null;
+    }
+
+    IEnumerator ReturnLazer()
+    {
+        if (listLazer != null)
+        {
+            yield return new WaitForSeconds(despawn);
+
+            listLazer[0].GetComponent<LAZER>().Return(pool);
+            listLazer.RemoveAt(0);
+        }
+        yield return null;
     }
 }
