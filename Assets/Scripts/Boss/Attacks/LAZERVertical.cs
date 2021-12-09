@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
 
-public class LAZERVertical : MonoBehaviour
+public class LAZERVertical : MonoBehaviour, Comportement
 {
     [SerializeField] Pool pool;
     [SerializeField] Transform spawnOrigin;
@@ -58,10 +58,19 @@ public class LAZERVertical : MonoBehaviour
 
             if (listLazer.Count == 0)
             {
-                spawnPoint=spawnOrigin.position;
+                spawnPoint = spawnOrigin.position;
                 StopAllCoroutines();
             }
         }
         yield return null;
+    }
+
+    void Comportement.Attack()
+    {
+        Shoot();
+    }
+        void Comportement.Stop()
+    {
+        return;
     }
 }

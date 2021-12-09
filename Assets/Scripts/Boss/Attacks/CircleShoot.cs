@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CircleShoot : MonoBehaviour
+public class CircleShoot : MonoBehaviour, Comportement
 {
     [SerializeField] Pool pool;
 
@@ -16,6 +16,8 @@ public class CircleShoot : MonoBehaviour
     [SerializeField]
     int numberOfProjectiles;
 
+    [SerializeField] bool canAttack;
+
     Vector2 startPoint;
     Vector2 projectileVector;
     Vector2 projectileMoveDirection;
@@ -23,7 +25,7 @@ public class CircleShoot : MonoBehaviour
     float radius, moveSpeed;
 
     // Use this for initialization
-    void Start()
+    public void Start()
     {
         radius = 5f;
         moveSpeed = 5f;
@@ -33,7 +35,7 @@ public class CircleShoot : MonoBehaviour
     void Update()
     {
         spawnRate -= Time.deltaTime;
-        if (spawnRate <= 0)
+        if (spawnRate <= 0 && canAttack == true)
         {
             SpawnProjectiles(numberOfProjectiles);
             spawnRate = maxRate;
@@ -68,7 +70,17 @@ public class CircleShoot : MonoBehaviour
 
         bulletBoss.GetComponent<Bullet>().Spawn(pool);
         bulletBoss.GetComponent<Rigidbody2D>().velocity = new Vector2(projectileMoveDirection.x, projectileMoveDirection.y);
-        
+
         spawnRate = maxRate;
+    }
+
+    void Comportement.Attack()
+    {
+        canAttack = true;
+    }
+
+    void Comportement.Stop()
+    {
+        canAttack = false;
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
 
-public class LazerMid : MonoBehaviour
+public class LazerMid : MonoBehaviour, Comportement
 {
     [SerializeField] Pool pool;
     Vector3 spawnPoint;
@@ -60,5 +60,15 @@ public class LazerMid : MonoBehaviour
             }
         }
         yield return null;
+    }
+
+    void Comportement.Attack()
+    {
+        SpawnProjectiles();
+    }
+
+    void Comportement.Stop()
+    {
+        return;
     }
 }
