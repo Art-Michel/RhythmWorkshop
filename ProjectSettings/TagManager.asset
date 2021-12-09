@@ -9,6 +9,7 @@ TagManager:
   - South
   - West
   - East
+  - Projectile
   layers:
   - Default
   - TransparentFX

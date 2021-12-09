@@ -8,20 +8,29 @@ using UnityEngine.InputSystem;
 public class PlayerNotes : LocalManager<PlayerNotes>
 {
     PlayerActionMap _inputs;
+    PlayerHealth playerHealth;
 
+    [Header("Button Transforms")]
     [SerializeField] Transform _northButton;
     [SerializeField] Transform _southButton;
     [SerializeField] Transform _westButton;
     [SerializeField] Transform _eastButton;
-
     SpriteRenderer _northButtonSprite;
     SpriteRenderer _southButtonSprite;
     SpriteRenderer _eastButtonSprite;
     SpriteRenderer _westButtonSprite;
 
-    Sprite _pressedButton;
-    Sprite _unpressedButton;
+    [Header("Button Sprites")]
+    [SerializeField] Sprite _pressedNorthButton;
+    [SerializeField] Sprite _unpressedNorthButton;
+    [SerializeField] Sprite _pressedSouthButton;
+    [SerializeField] Sprite _unpressedSouthButton;
+    [SerializeField] Sprite _pressedEastButton;
+    [SerializeField] Sprite _unpressedEastButton;
+    [SerializeField] Sprite _pressedWestButton;
+    [SerializeField] Sprite _unpressedWestButton;
 
+    [Header("Transforms where the feedbacks will be displayed")]
     public Transform _northNoteResultUIPos;
     public Transform _southNoteResultUIPos;
     public Transform _eastNoteResultUIPos;
@@ -30,6 +39,8 @@ public class PlayerNotes : LocalManager<PlayerNotes>
     readonly float _perfectMaxDistance = 0.06f;
     readonly float _goodMaxDistance = 0.13f;
     readonly float _missMaxDistance = 0.35f;
+
+    [Header("Feedback prefabs")]
     [SerializeField] TextMeshProUGUI _perfectFeedback;
     [SerializeField] TextMeshProUGUI _goodFeedback;
     [SerializeField] TextMeshProUGUI _missFeedback;
@@ -57,11 +68,12 @@ public class PlayerNotes : LocalManager<PlayerNotes>
         _southButtonSprite = _southButton.GetComponent<SpriteRenderer>();
         _westButtonSprite = _westButton.GetComponent<SpriteRenderer>();
         _eastButtonSprite = _eastButton.GetComponent<SpriteRenderer>();
+        playerHealth = GetComponent<PlayerHealth>();
     }
 
     private void NorthNotePressed(InputAction.CallbackContext obj)
     {
-        ChangeButtonSprite(_northButtonSprite, _pressedButton);
+        ChangeButtonSprite(_northButtonSprite, _pressedNorthButton);
 
         if (NotesManager.Instance._northNotes.Count > 0)
         {
@@ -80,7 +92,7 @@ public class PlayerNotes : LocalManager<PlayerNotes>
 
     private void SouthNotePressed(InputAction.CallbackContext obj)
     {
-        ChangeButtonSprite(_southButtonSprite, _pressedButton);
+        ChangeButtonSprite(_southButtonSprite, _pressedSouthButton);
 
         if (NotesManager.Instance._southNotes.Count > 0)
         {
@@ -99,7 +111,7 @@ public class PlayerNotes : LocalManager<PlayerNotes>
 
     private void EastNotePressed(InputAction.CallbackContext obj)
     {
-        ChangeButtonSprite(_eastButtonSprite, _pressedButton);
+        ChangeButtonSprite(_eastButtonSprite, _pressedEastButton);
 
         if (NotesManager.Instance._eastNotes.Count > 0)
         {
@@ -117,7 +129,7 @@ public class PlayerNotes : LocalManager<PlayerNotes>
 
     private void WestNotePressed(InputAction.CallbackContext obj)
     {
-        ChangeButtonSprite(_southButtonSprite, _pressedButton);
+        ChangeButtonSprite(_westButtonSprite, _pressedWestButton);
 
         if (NotesManager.Instance._westNotes.Count > 0)
         {
@@ -147,6 +159,7 @@ public class PlayerNotes : LocalManager<PlayerNotes>
     private void Perfect(Transform feedbackPos, Note note)
     {
         Instantiate(_perfectFeedback, feedbackPos);
+        playerHealth.Heal(0.1f);
         note.Death();
     }
 
@@ -158,27 +171,27 @@ public class PlayerNotes : LocalManager<PlayerNotes>
 
     private void NorthNoteReleased(InputAction.CallbackContext obj)
     {
-        ChangeButtonSprite(_northButtonSprite, _unpressedButton);
+        ChangeButtonSprite(_northButtonSprite, _unpressedNorthButton);
     }
 
     private void SouthNoteReleased(InputAction.CallbackContext obj)
     {
-        ChangeButtonSprite(_southButtonSprite, _unpressedButton);
+        ChangeButtonSprite(_southButtonSprite, _unpressedSouthButton);
     }
 
     private void EastNoteReleased(InputAction.CallbackContext obj)
     {
-        ChangeButtonSprite(_eastButtonSprite, _unpressedButton);
+        ChangeButtonSprite(_eastButtonSprite, _unpressedEastButton);
     }
 
     private void WestNoteReleased(InputAction.CallbackContext obj)
     {
-        ChangeButtonSprite(_westButtonSprite, _unpressedButton);
+        ChangeButtonSprite(_westButtonSprite, _unpressedWestButton);
     }
 
     void ChangeButtonSprite(SpriteRenderer spriteToChange, Sprite spriteToApply)
     {
-
+        spriteToChange.sprite = spriteToApply;
     }
 
     #region disable inputs on Player disable to avoid weird inputs
