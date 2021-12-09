@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -24,25 +25,57 @@ public class PlayerNotes : MonoBehaviour
 
     private void NorthNotePressed(InputAction.CallbackContext obj)
     {
-        CheckDistance(_temporaryNote.position, _northButton.position);
-    }
-    private void SouthNotePressed(InputAction.CallbackContext obj)
-    {
-        CheckDistance(_temporaryNote.position, _southButton.position);
-    }
-    private void EastNotePressed(InputAction.CallbackContext obj)
-    {
-        CheckDistance(_temporaryNote.position, _eastButton.position);
-    }
-    private void WestNotePressed(InputAction.CallbackContext obj)
-    {
-        CheckDistance(_temporaryNote.position, _westButton.position);
+        GameObject note = NotesManager.Instance._northNotes.Peek();
+        float noteDistance = CheckDistance(note.transform.position, _northButton.position);
+        if (noteDistance<0.2f)
+            Perfect();
+        else if (noteDistance<0.4f)
+            Good();
     }
 
-    void CheckDistance(Vector3 a, Vector3 b)
+    private void SouthNotePressed(InputAction.CallbackContext obj)
     {
-        float distance = Vector3.Distance(a, b);
-        Debug.Log(distance);
+        GameObject note = NotesManager.Instance._southNotes.Peek();
+        float noteDistance = CheckDistance(note.transform.position, _southButton.position);
+        if (noteDistance<0.2f)
+            Perfect();
+        else if (noteDistance<0.4f)
+            Good();
+    }
+
+    private void EastNotePressed(InputAction.CallbackContext obj)
+    {
+        GameObject note = NotesManager.Instance._eastNotes.Peek();
+        float noteDistance = CheckDistance(note.transform.position, _eastButton.position);
+        if (noteDistance<0.2f)
+            Perfect();
+        else if (noteDistance<0.4f)
+            Good();
+    }
+
+    private void WestNotePressed(InputAction.CallbackContext obj)
+    {
+        GameObject note = NotesManager.Instance._westNotes.Peek();
+        float noteDistance = CheckDistance(note.transform.position, _westButton.position);
+        if (noteDistance<0.2f)
+            Perfect();
+        else if (noteDistance<0.4f)
+            Good();
+    }
+
+    float CheckDistance(Vector3 a, Vector3 b)
+    {
+        return Vector3.Distance(a, b);
+    }
+
+    private void Good()
+    {
+        Debug.Log("good");
+    }
+
+    private void Perfect()
+    {
+        Debug.Log("perfect");
     }
 
     #region disable inputs on Player disable to avoid weird inputs
