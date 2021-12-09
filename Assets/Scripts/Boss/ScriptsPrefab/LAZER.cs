@@ -8,19 +8,28 @@ public class LAZER : MonoBehaviour
     float chrono;
     [SerializeField] float maxLife;
     [SerializeField] GameObject child;
+    [SerializeField] Material alphaChange;
+    [SerializeField] float speed;
     // Start is called before the first frame update
 
     private void Start()
     {
-        chrono=maxLife;
+        chrono = maxLife;
+        Color color = alphaChange.color;
+        color.a =0.1f;
+        alphaChange.color = color;
     }
-    
+
     private void Update()
     {
+        Color color = alphaChange.color;
+        color.a += 1f * Time.deltaTime * speed;
+        alphaChange.color = color;
+
         if (chrono <= 0)
         {
             LAZERSpawn();
-            chrono=maxLife;
+            chrono = maxLife;
         }
         chrono -= Time.deltaTime;
     }

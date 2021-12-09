@@ -51,7 +51,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 3a3b3079b24715a4186534040abc1eac, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -163,7 +163,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 6d07963fdaceb4249b0ffec5d265bcfc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -228,6 +228,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxLife: 2
   child: {fileID: 3587679617274473116}
+  alphaChange: {fileID: 2100000, guid: 6d07963fdaceb4249b0ffec5d265bcfc, type: 2}
+  speed: 0.08
 --- !u!50 &6997076978385713125
 Rigidbody2D:
   serializedVersion: 4

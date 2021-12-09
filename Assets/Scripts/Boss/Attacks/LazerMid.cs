@@ -9,6 +9,7 @@ public class LazerMid : MonoBehaviour
     Vector3 spawnPoint;
 
     GameObject LAZERBoss;
+    List<GameObject> lazerList = new List<GameObject>();
 
     [SerializeField]
     int numberOfProjectiles;
@@ -16,14 +17,7 @@ public class LazerMid : MonoBehaviour
     Vector2 startPoint;
     float angle = 0f;
 
-    void SpawnBullet()
-    {
-        LAZERBoss = pool.Get();
-        LAZERBoss.SetActive(true);
-        LAZERBoss.transform.position = spawnPoint;
-        LAZERBoss.transform.rotation=Quaternion.Euler(0,0,angle);
-        LAZERBoss.GetComponent<LAZER>().Spawn(pool);
-    }
+    [SerializeField] float resetTime;
 
     [Button]
     void SpawnProjectiles()
@@ -34,9 +28,37 @@ public class LazerMid : MonoBehaviour
 
         for (int i = 0; i <= numberOfProjectiles - 1; i++)
         {
-            SpawnBullet();
             angle += angleStep;
-            Debug.Log("angle="+angle);
+            SpawnBullet(angle);
+            Debug.Log("angle=" + angle);
+            lazerList.Add(LAZERBoss);
+            StartCoroutine(ReturnLazer());
         }
+    }
+
+    void SpawnBullet(float angleRot)
+    {
+        LAZERBoss = pool.Get();
+        LAZERBoss.SetActive(true);
+        LAZERBoss.transform.rotation = Quaternion.Euler(0, 0, angleRot);
+        LAZERBoss.transform.position = spawnPoint;
+        LAZERBoss.GetComponent<LAZER>().Spawn(pool);
+    }
+
+    IEnumerator ReturnLazer()
+    {
+        if (lazerList != null)
+        {
+            yield return new WaitForSeconds(resetTime);
+
+            lazerList[0].GetComponent<LAZER>().Return(pool);
+            lazerList.RemoveAt(0);
+
+            if (lazerList.Count == 0)
+            {
+                StopAllCoroutines();
+            }
+        }
+        yield return null;
     }
 }
