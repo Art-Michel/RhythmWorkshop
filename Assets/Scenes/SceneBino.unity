@@ -571,6 +571,7 @@ Transform:
   - {fileID: 897131652}
   - {fileID: 1677970759}
   - {fileID: 2112386550}
+  - {fileID: 2136911884}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -686,7 +687,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 4720954399699858378, guid: 3e155a02fada597488e8d7beeaac3823, type: 3}
-  baseCount: 50
+  baseCount: 25
 --- !u!4 &1677970759
 Transform:
   m_ObjectHideFlags: 0
@@ -1032,7 +1033,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9727a7a8bb56aaa488d2e0a5f8c5f788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goCenter: 0
+  goCenter: 1
   goUp: 0
   speed: 1
   centerMap: {fileID: 936079558}
@@ -1102,9 +1103,55 @@ Transform:
   - {fileID: 2141117467}
   - {fileID: 458992737}
   - {fileID: 1594843912}
+  - {fileID: 2107948413}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2107948412
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2107948413}
+  - component: {fileID: 2107948414}
+  m_Layer: 0
+  m_Name: MidLazers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2107948413
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107948412}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2069321255}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2107948414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107948412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1a22512f60628848a93ec0c8a1ea5f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pool: {fileID: 2136911885}
+  numberOfProjectiles: 5
 --- !u!1 &2112386549
 GameObject:
   m_ObjectHideFlags: 0
@@ -1150,6 +1197,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 3793086198265960782, guid: f6ee9644cd073264c88082d765281c3c, type: 3}
   baseCount: 100
+--- !u!1 &2136911883
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2136911884}
+  - component: {fileID: 2136911885}
+  m_Layer: 0
+  m_Name: LazerMidPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2136911884
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136911883}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 6.1567044, y: 0.84285086, z: -8.662537}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1499576724}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2136911885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136911883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e7c522828869624ab3595f7deaddf13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 4809095663031050723, guid: d89ca4e2c68250841a0c878224933465, type: 3}
+  baseCount: 25
 --- !u!1 &2141117466
 GameObject:
   m_ObjectHideFlags: 0
