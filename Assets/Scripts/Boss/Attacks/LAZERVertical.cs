@@ -6,8 +6,8 @@ using NaughtyAttributes;
 public class LAZERVertical : MonoBehaviour
 {
     [SerializeField] Pool pool;
-    [SerializeField] Transform spawn;
-    Transform spawnPoint;
+    [SerializeField] Transform spawnOrigin;
+    Vector3 spawnPoint;
 
     [SerializeField] int length;
     [SerializeField] Vector3 addPos;
@@ -21,14 +21,14 @@ public class LAZERVertical : MonoBehaviour
 
     private void Start()
     {
-        spawnPoint = spawn;
+        spawnPoint = spawnOrigin.position;
     }
 
     void SpawnBullet()
     {
         LAZERBoss = pool.Get();
         LAZERBoss.SetActive(true);
-        LAZERBoss.transform.position = spawnPoint.position;
+        LAZERBoss.transform.position = spawnPoint;
         LAZERBoss.GetComponent<LAZER>().Spawn(pool);
         listLazer.Add(LAZERBoss);
     }
@@ -39,12 +39,11 @@ public class LAZERVertical : MonoBehaviour
         for (int i = 0; i < length; i++)
         {
             SpawnBullet();
-            spawnPoint.position += addPos;
+            spawnPoint += addPos;
 
             yield return new WaitForSeconds(maxRate);
             StartCoroutine(ReturnLazer());
         }
-        spawnPoint=spawn;
         yield return null;
     }
 
@@ -56,6 +55,12 @@ public class LAZERVertical : MonoBehaviour
 
             listLazer[0].GetComponent<LAZER>().Return(pool);
             listLazer.RemoveAt(0);
+
+            if (listLazer.Count == 0)
+            {
+                spawnPoint=spawnOrigin.position;
+                StopAllCoroutines();
+            }
         }
         yield return null;
     }

@@ -227,4 +227,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxLife: 2
   child: {fileID: 3587679617274473116}
-  lazerSpawn: 0.5
