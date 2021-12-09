@@ -1,8 +1,11 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerNotes : MonoBehaviour
+public class PlayerNotes : LocalManager<PlayerNotes>
 {
     PlayerActionMap _inputs;
 
@@ -11,56 +14,123 @@ public class PlayerNotes : MonoBehaviour
     [SerializeField] Transform _westButton;
     [SerializeField] Transform _eastButton;
 
-    [SerializeField] Transform _temporaryNote;
+    SpriteRenderer _northButtonSprite;
+    SpriteRenderer _southButtonSprite;
+    SpriteRenderer _eastButtonSprite;
+    SpriteRenderer _westButtonSprite;
 
-    private void Awake()
+    Sprite _pressedButton;
+    Sprite _unpressedButton;
+
+    public Transform _northNoteResultUIPos;
+    public Transform _southNoteResultUIPos;
+    public Transform _eastNoteResultUIPos;
+    public Transform _westNoteResultUIPos;
+
+    readonly float _perfectMaxDistance = 0.06f;
+    readonly float _goodMaxDistance = 0.13f;
+    readonly float _missMaxDistance = 0.35f;
+    [SerializeField] TextMeshProUGUI _perfectFeedback;
+    [SerializeField] TextMeshProUGUI _goodFeedback;
+    [SerializeField] TextMeshProUGUI _missFeedback;
+
+    protected override void Awake()
     {
+        base.Awake();
         _inputs = new PlayerActionMap();
         _inputs.Movement.NorthNote.started += NorthNotePressed;
-        _inputs.Movement.SouthNote.started += SouthNotePressed;
-        _inputs.Movement.WestNote.started += WestNotePressed;
-        _inputs.Movement.EastNote.started += EastNotePressed;
+        _inputs.Movement.NorthNote.canceled += NorthNoteReleased;
 
+        _inputs.Movement.SouthNote.started += SouthNotePressed;
+        _inputs.Movement.SouthNote.canceled += SouthNoteReleased;
+
+        _inputs.Movement.WestNote.started += WestNotePressed;
+        _inputs.Movement.WestNote.canceled += WestNoteReleased;
+
+        _inputs.Movement.EastNote.started += EastNotePressed;
+        _inputs.Movement.EastNote.canceled += EastNoteReleased;
+    }
+
+    private void Start()
+    {
+        _northButtonSprite = _northButton.GetComponent<SpriteRenderer>();
+        _southButtonSprite = _southButton.GetComponent<SpriteRenderer>();
+        _westButtonSprite = _westButton.GetComponent<SpriteRenderer>();
+        _eastButtonSprite = _eastButton.GetComponent<SpriteRenderer>();
     }
 
     private void NorthNotePressed(InputAction.CallbackContext obj)
     {
-        GameObject note = NotesManager.Instance._northNotes.Peek();
-        float noteDistance = CheckDistance(note.transform.position, _northButton.position);
-        if (noteDistance<0.2f)
-            Perfect();
-        else if (noteDistance<0.4f)
-            Good();
+        ChangeButtonSprite(_northButtonSprite, _pressedButton);
+
+        if (NotesManager.Instance._northNotes.Count > 0)
+        {
+
+            GameObject note = (GameObject)NotesManager.Instance._northNotes.Peek();
+            float noteDistance = CheckDistance(note.transform.position, _northButton.position);
+
+            if (noteDistance < _perfectMaxDistance)
+                Perfect(_northNoteResultUIPos, note.GetComponent<Note>());
+            else if (noteDistance < _goodMaxDistance)
+                Good(_northNoteResultUIPos, note.GetComponent<Note>());
+            else if (noteDistance < _missMaxDistance)
+                Miss(_northNoteResultUIPos, note.GetComponent<Note>());
+        }
     }
 
     private void SouthNotePressed(InputAction.CallbackContext obj)
     {
-        GameObject note = NotesManager.Instance._southNotes.Peek();
-        float noteDistance = CheckDistance(note.transform.position, _southButton.position);
-        if (noteDistance<0.2f)
-            Perfect();
-        else if (noteDistance<0.4f)
-            Good();
+        ChangeButtonSprite(_southButtonSprite, _pressedButton);
+
+        if (NotesManager.Instance._southNotes.Count > 0)
+        {
+
+            GameObject note = (GameObject)NotesManager.Instance._southNotes.Peek();
+            float noteDistance = CheckDistance(note.transform.position, _southButton.position);
+
+            if (noteDistance < _perfectMaxDistance)
+                Perfect(_southNoteResultUIPos, note.GetComponent<Note>());
+            else if (noteDistance < _goodMaxDistance)
+                Good(_southNoteResultUIPos, note.GetComponent<Note>());
+            else if (noteDistance < _missMaxDistance)
+                Miss(_southNoteResultUIPos, note.GetComponent<Note>());
+        }
     }
 
     private void EastNotePressed(InputAction.CallbackContext obj)
     {
-        GameObject note = NotesManager.Instance._eastNotes.Peek();
-        float noteDistance = CheckDistance(note.transform.position, _eastButton.position);
-        if (noteDistance<0.2f)
-            Perfect();
-        else if (noteDistance<0.4f)
-            Good();
+        ChangeButtonSprite(_eastButtonSprite, _pressedButton);
+
+        if (NotesManager.Instance._eastNotes.Count > 0)
+        {
+            GameObject note = (GameObject)NotesManager.Instance._eastNotes.Peek();
+            float noteDistance = CheckDistance(note.transform.position, _eastButton.position);
+
+            if (noteDistance < _perfectMaxDistance)
+                Perfect(_eastNoteResultUIPos, note.GetComponent<Note>());
+            else if (noteDistance < _goodMaxDistance)
+                Good(_eastNoteResultUIPos, note.GetComponent<Note>());
+            else if (noteDistance < _missMaxDistance)
+                Miss(_eastNoteResultUIPos, note.GetComponent<Note>());
+        }
     }
 
     private void WestNotePressed(InputAction.CallbackContext obj)
     {
-        GameObject note = NotesManager.Instance._westNotes.Peek();
-        float noteDistance = CheckDistance(note.transform.position, _westButton.position);
-        if (noteDistance<0.2f)
-            Perfect();
-        else if (noteDistance<0.4f)
-            Good();
+        ChangeButtonSprite(_southButtonSprite, _pressedButton);
+
+        if (NotesManager.Instance._westNotes.Count > 0)
+        {
+            GameObject note = (GameObject)NotesManager.Instance._westNotes.Peek();
+            float noteDistance = CheckDistance(note.transform.position, _westButton.position);
+
+            if (noteDistance < _perfectMaxDistance)
+                Perfect(_westNoteResultUIPos, note.GetComponent<Note>());
+            else if (noteDistance < _goodMaxDistance)
+                Good(_westNoteResultUIPos, note.GetComponent<Note>());
+            else if (noteDistance < _missMaxDistance)
+                Miss(_westNoteResultUIPos, note.GetComponent<Note>());
+        }
     }
 
     float CheckDistance(Vector3 a, Vector3 b)
@@ -68,14 +138,47 @@ public class PlayerNotes : MonoBehaviour
         return Vector3.Distance(a, b);
     }
 
-    private void Good()
+    private void Good(Transform feedbackPos, Note note)
     {
-        Debug.Log("good");
+        Instantiate(_goodFeedback, feedbackPos);
+        note.Death();
     }
 
-    private void Perfect()
+    private void Perfect(Transform feedbackPos, Note note)
     {
-        Debug.Log("perfect");
+        Instantiate(_perfectFeedback, feedbackPos);
+        note.Death();
+    }
+
+    public void Miss(Transform feedbackPos, Note note)
+    {
+        Instantiate(_missFeedback, feedbackPos);
+        note.Death();
+    }
+
+    private void NorthNoteReleased(InputAction.CallbackContext obj)
+    {
+        ChangeButtonSprite(_northButtonSprite, _unpressedButton);
+    }
+
+    private void SouthNoteReleased(InputAction.CallbackContext obj)
+    {
+        ChangeButtonSprite(_southButtonSprite, _unpressedButton);
+    }
+
+    private void EastNoteReleased(InputAction.CallbackContext obj)
+    {
+        ChangeButtonSprite(_eastButtonSprite, _unpressedButton);
+    }
+
+    private void WestNoteReleased(InputAction.CallbackContext obj)
+    {
+        ChangeButtonSprite(_westButtonSprite, _unpressedButton);
+    }
+
+    void ChangeButtonSprite(SpriteRenderer spriteToChange, Sprite spriteToApply)
+    {
+
     }
 
     #region disable inputs on Player disable to avoid weird inputs
