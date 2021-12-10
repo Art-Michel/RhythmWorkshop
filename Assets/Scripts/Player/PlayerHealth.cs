@@ -62,6 +62,4 @@ public class PlayerHealth : MonoBehaviour
         if (volume.TryGet<Vignette>(out vignette))
             vignette.intensity.Override(-PlayerHP / _maxHP + 1);
     }
-
-
 }

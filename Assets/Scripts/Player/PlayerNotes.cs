@@ -9,6 +9,7 @@ public class PlayerNotes : LocalManager<PlayerNotes>
 {
     PlayerActionMap _inputs;
     PlayerHealth playerHealth;
+    PlayerAttack playerAttack;
 
     [Header("Button Transforms")]
     [SerializeField] Transform _northButton;
@@ -69,6 +70,7 @@ public class PlayerNotes : LocalManager<PlayerNotes>
         _westButtonSprite = _westButton.GetComponent<SpriteRenderer>();
         _eastButtonSprite = _eastButton.GetComponent<SpriteRenderer>();
         playerHealth = GetComponent<PlayerHealth>();
+        playerAttack = GetComponent<PlayerAttack>();
     }
 
     private void NorthNotePressed(InputAction.CallbackContext obj)
