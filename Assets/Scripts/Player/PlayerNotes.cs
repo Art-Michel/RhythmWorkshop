@@ -84,9 +84,9 @@ public class PlayerNotes : LocalManager<PlayerNotes>
             float noteDistance = CheckDistance(note.transform.position, _northButton.position);
 
             if (noteDistance < _perfectMaxDistance)
-                Perfect(_northNoteResultUIPos, note.GetComponent<Note>());
+                Perfect(_northNoteResultUIPos, note.GetComponent<Note>(), Vector2.up);
             else if (noteDistance < _goodMaxDistance)
-                Good(_northNoteResultUIPos, note.GetComponent<Note>());
+                Good(_northNoteResultUIPos, note.GetComponent<Note>(), Vector2.up);
             else if (noteDistance < _missMaxDistance)
                 Miss(_northNoteResultUIPos, note.GetComponent<Note>());
         }
@@ -103,9 +103,9 @@ public class PlayerNotes : LocalManager<PlayerNotes>
             float noteDistance = CheckDistance(note.transform.position, _southButton.position);
 
             if (noteDistance < _perfectMaxDistance)
-                Perfect(_southNoteResultUIPos, note.GetComponent<Note>());
+                Perfect(_southNoteResultUIPos, note.GetComponent<Note>(), Vector2.down);
             else if (noteDistance < _goodMaxDistance)
-                Good(_southNoteResultUIPos, note.GetComponent<Note>());
+                Good(_southNoteResultUIPos, note.GetComponent<Note>(), Vector2.down);
             else if (noteDistance < _missMaxDistance)
                 Miss(_southNoteResultUIPos, note.GetComponent<Note>());
         }
@@ -121,9 +121,9 @@ public class PlayerNotes : LocalManager<PlayerNotes>
             float noteDistance = CheckDistance(note.transform.position, _eastButton.position);
 
             if (noteDistance < _perfectMaxDistance)
-                Perfect(_eastNoteResultUIPos, note.GetComponent<Note>());
+                Perfect(_eastNoteResultUIPos, note.GetComponent<Note>(), Vector2.right);
             else if (noteDistance < _goodMaxDistance)
-                Good(_eastNoteResultUIPos, note.GetComponent<Note>());
+                Good(_eastNoteResultUIPos, note.GetComponent<Note>(), Vector2.right);
             else if (noteDistance < _missMaxDistance)
                 Miss(_eastNoteResultUIPos, note.GetComponent<Note>());
         }
@@ -139,9 +139,9 @@ public class PlayerNotes : LocalManager<PlayerNotes>
             float noteDistance = CheckDistance(note.transform.position, _westButton.position);
 
             if (noteDistance < _perfectMaxDistance)
-                Perfect(_westNoteResultUIPos, note.GetComponent<Note>());
+                Perfect(_westNoteResultUIPos, note.GetComponent<Note>(), Vector2.left);
             else if (noteDistance < _goodMaxDistance)
-                Good(_westNoteResultUIPos, note.GetComponent<Note>());
+                Good(_westNoteResultUIPos, note.GetComponent<Note>(), Vector2.left);
             else if (noteDistance < _missMaxDistance)
                 Miss(_westNoteResultUIPos, note.GetComponent<Note>());
         }
@@ -152,17 +152,19 @@ public class PlayerNotes : LocalManager<PlayerNotes>
         return Vector3.Distance(a, b);
     }
 
-    private void Good(Transform feedbackPos, Note note)
+    private void Good(Transform feedbackPos, Note note, Vector2 direction)
     {
         Instantiate(_goodFeedback, feedbackPos);
         note.Death();
+        playerAttack.LaunchMissile(direction);
     }
 
-    private void Perfect(Transform feedbackPos, Note note)
+    private void Perfect(Transform feedbackPos, Note note, Vector2 direction)
     {
         Instantiate(_perfectFeedback, feedbackPos);
         playerHealth.Heal(0.1f);
         note.Death();
+        playerAttack.LaunchMissile(direction);
     }
 
     public void Miss(Transform feedbackPos, Note note)
@@ -175,17 +177,14 @@ public class PlayerNotes : LocalManager<PlayerNotes>
     {
         ChangeButtonSprite(_northButtonSprite, _unpressedNorthButton);
     }
-
     private void SouthNoteReleased(InputAction.CallbackContext obj)
     {
         ChangeButtonSprite(_southButtonSprite, _unpressedSouthButton);
     }
-
     private void EastNoteReleased(InputAction.CallbackContext obj)
     {
         ChangeButtonSprite(_eastButtonSprite, _unpressedEastButton);
     }
-
     private void WestNoteReleased(InputAction.CallbackContext obj)
     {
         ChangeButtonSprite(_westButtonSprite, _unpressedWestButton);

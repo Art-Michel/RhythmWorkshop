@@ -10,12 +10,11 @@ public class Missile : MonoBehaviour
     Vector2 _p1;
     Vector2 _p2;
 
-    public void Init(Vector2 startingPoing, Vector2 intermidiatePoint)
+    public void Init(Vector2 startingPoint, Vector2 intermidiatePoint)
     {
         _t = 0;
-        _p0 = startingPoing;
+        _p0 = startingPoint;
         _p1 = intermidiatePoint;
-        //_p2 = BossMovement.Instance.transform;
     }
 
     private void Update()
@@ -23,15 +22,28 @@ public class Missile : MonoBehaviour
         if (_t < 1)
         {
             _t += Time.deltaTime;
-            LerpPositionBezier();   
+            UpdateBossPosition();
+            Vector2 wantedPos = LerpPositionBezier();
+            UpdateRotation(wantedPos);
+            transform.position = wantedPos;
         }
         else
             Explode();
     }
 
+    private void UpdateRotation(Vector3 point)
+    {
+        transform.up = point - transform.position;
+    }
+
+    private void UpdateBossPosition()
+    {
+        //_p2 = BossHp.Instance.transform.position;
+    }
+
     private void Explode()
     {
-        Debug.Log("boom");
+        Destroy(gameObject);
     }
 
     Vector2 LerpPositionBezier()
