@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
 
-public class BossMovement : MonoBehaviour
+public class BossMovement : LocalManager<BossMovement>
 {
     bool goRight;
     bool isMovingSide;
@@ -12,6 +12,10 @@ public class BossMovement : MonoBehaviour
 
     Vector3 pos;
     [SerializeField] float speed;
+    [SerializeField] float speedMov;
+    [SerializeField] float maxX;
+    float time;
+    float x;
 
     [SerializeField] Transform centerMap;
     [SerializeField] Transform upMap;
@@ -20,7 +24,7 @@ public class BossMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pos = transform.position;
+        pos = new Vector3(transform.localPosition.x, transform.localPosition.y, transform.localPosition.z);
         isMovingSide = true;
     }
 
@@ -29,24 +33,11 @@ public class BossMovement : MonoBehaviour
     {
         if (isMovingSide == true)
         {
-            if (transform.position.x <= -1.5f)
-            {
-                goRight = true;
-            }
-            else if (transform.position.x >= 1.5f)
-            {
-                goRight = false;
-            }
-            if (goRight == true)
-            {
-                pos.x += Time.deltaTime * speed;
-            }
-            else
-            {
-                pos.x += -Time.deltaTime * speed;
-            }
-            transform.position = pos;
+            time += Time.deltaTime;
+            x = maxX * Mathf.Sin(speed * time);
+            transform.localPosition = new Vector3(pos.x + x, pos.y, pos.z);
         }
+
         if (goCenter == true)
         {
             StartCoroutine(Move2Center());
@@ -61,7 +52,7 @@ public class BossMovement : MonoBehaviour
 
     IEnumerator Move2Center()
     {
-        transform.position = new Vector2(Mathf.Lerp(transform.position.x, centerMap.position.x, chrono), Mathf.Lerp(transform.position.y, centerMap.position.y, chrono));
+        transform.position = new Vector2(Mathf.Lerp(transform.position.x, centerMap.position.x, chrono*speedMov), Mathf.Lerp(transform.position.y, centerMap.position.y, chrono));
 
         isMovingSide = false;
         goCenter = true;
@@ -88,6 +79,8 @@ public class BossMovement : MonoBehaviour
             goUp = false;
             isMovingSide = true;
             chrono = 0;
+            time=0;
+            x=pos.x;
             pos = transform.position;
             StopCoroutine(Move2Up());
         }

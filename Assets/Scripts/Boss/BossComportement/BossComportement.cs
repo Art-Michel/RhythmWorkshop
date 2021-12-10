@@ -11,12 +11,12 @@ public class BossComportement : MonoBehaviour
     [SerializeField] LAZERVertical lazerVert;
     [SerializeField] List<int> attacks = new List<int>();
     [SerializeField] float delayAttack;
-    int a;
+    public int a;
 
     [Button]
     void AttacksPhase1()
     {
-        if (a <= attacks.Count)
+        if (a < attacks.Count)
         {
             ListAttacks();
         }
@@ -55,17 +55,13 @@ public class BossComportement : MonoBehaviour
 
     IEnumerator Spirale()
     {
+
         spiraleAttack.Attack();
 
         yield return new WaitForSeconds(delayAttack);
 
-        if (spiraleAttack.attackOver == false)
-        {
-            spiraleAttack.attackOver = true;
-            AttacksPhase1();
-        }
-
         a++;
+        AttacksPhase1();
         StopCoroutine(Circle());
 
         yield return null;

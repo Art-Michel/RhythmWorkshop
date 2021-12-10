@@ -1072,6 +1072,8 @@ MonoBehaviour:
   goCenter: 0
   goUp: 0
   speed: 1
+  speedMov: 0
+  maxX: 2
   centerMap: {fileID: 936079558}
   upMap: {fileID: 671443927}
 --- !u!212 &2069321254
@@ -1161,6 +1163,7 @@ MonoBehaviour:
   lazerVert: {fileID: 458992739}
   attacks: 0200000002000000
   delayAttack: 2
+  a: 0
 --- !u!1 &2107948412
 GameObject:
   m_ObjectHideFlags: 0

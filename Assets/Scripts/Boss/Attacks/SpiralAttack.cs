@@ -23,13 +23,13 @@ public class SpiralAttack : MonoBehaviour
         attackOver = false;
     }
 
-    private void Update()
-    {
-        if (attackOver == true)
-        {
-            StopAllCoroutines();
-        }
-    }
+    // private void Update()
+    // {
+    //     if (attackOver == true)
+    //     {
+    //         StopAllCoroutines();
+    //     }
+    // }
 
     IEnumerator Spiral()
     {
