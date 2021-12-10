@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
 
-public class LazerMid : MonoBehaviour, Comportement
+public class LazerMid : MonoBehaviour
 {
     [SerializeField] Pool pool;
     Vector3 spawnPoint;
@@ -30,7 +30,6 @@ public class LazerMid : MonoBehaviour, Comportement
         {
             angle += angleStep;
             SpawnBullet(angle);
-            Debug.Log("angle=" + angle);
             lazerList.Add(LAZERBoss);
             StartCoroutine(ReturnLazer());
         }
@@ -62,13 +61,9 @@ public class LazerMid : MonoBehaviour, Comportement
         yield return null;
     }
 
-    void Comportement.Attack()
+    public void Attack()
     {
         SpawnProjectiles();
     }
 
-    void Comportement.Stop()
-    {
-        return;
-    }
 }

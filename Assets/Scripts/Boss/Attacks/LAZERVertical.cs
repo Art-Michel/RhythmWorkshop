@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
 
-public class LAZERVertical : MonoBehaviour, Comportement
+public class LAZERVertical : MonoBehaviour
 {
     [SerializeField] Pool pool;
     [SerializeField] Transform spawnOrigin;
@@ -11,6 +11,7 @@ public class LAZERVertical : MonoBehaviour, Comportement
 
     [SerializeField] int length;
     [SerializeField] Vector3 addPos;
+    public bool attackOver;
 
     [SerializeField] float despawn;
     [SerializeField] float maxRate;
@@ -22,6 +23,7 @@ public class LAZERVertical : MonoBehaviour, Comportement
     private void Start()
     {
         spawnPoint = spawnOrigin.position;
+        attackOver = false;
     }
 
     void SpawnBullet()
@@ -59,18 +61,15 @@ public class LAZERVertical : MonoBehaviour, Comportement
             if (listLazer.Count == 0)
             {
                 spawnPoint = spawnOrigin.position;
+                attackOver = true;
                 StopAllCoroutines();
             }
         }
         yield return null;
     }
 
-    void Comportement.Attack()
+    public void Attack()
     {
-        Shoot();
-    }
-        void Comportement.Stop()
-    {
-        return;
+        StartCoroutine(Shoot());
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CircleShoot : MonoBehaviour, Comportement
+public class CircleShoot : MonoBehaviour
 {
     [SerializeField] Pool pool;
 
@@ -42,7 +42,6 @@ public class CircleShoot : MonoBehaviour, Comportement
         }
     }
 
-
     void SpawnProjectiles(int numberOfProjectiles)
     {
         float angleStep = 360f / numberOfProjectiles;
@@ -60,6 +59,7 @@ public class CircleShoot : MonoBehaviour, Comportement
 
             angle += angleStep;
         }
+        
     }
 
     void SpawnBullet()
@@ -74,12 +74,12 @@ public class CircleShoot : MonoBehaviour, Comportement
         spawnRate = maxRate;
     }
 
-    void Comportement.Attack()
+    public void Attack()
     {
         canAttack = true;
     }
 
-    void Comportement.Stop()
+    public void Stop()
     {
         canAttack = false;
     }

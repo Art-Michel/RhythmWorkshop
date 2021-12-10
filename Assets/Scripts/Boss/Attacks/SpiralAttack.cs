@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
 
-public class SpiralAttack : MonoBehaviour, Comportement
+public class SpiralAttack : MonoBehaviour
 {
     [SerializeField] Pool pool;
     [SerializeField] float maxSpeed;
@@ -11,6 +11,7 @@ public class SpiralAttack : MonoBehaviour, Comportement
     [SerializeField] int maxTurns;
     [SerializeField] int maxProj;
     Transform spawn;
+    public bool attackOver;
 
     Vector2 startPoint;
     Vector2 projectileVector;
@@ -19,9 +20,17 @@ public class SpiralAttack : MonoBehaviour, Comportement
     public void Start()
     {
         spawn = transform;
+        attackOver = false;
     }
 
-    [Button]
+    private void Update()
+    {
+        if (attackOver == true)
+        {
+            StopAllCoroutines();
+        }
+    }
+
     IEnumerator Spiral()
     {
         float angleStep = 360f / maxProj;
@@ -42,6 +51,7 @@ public class SpiralAttack : MonoBehaviour, Comportement
                 yield return new WaitForSeconds(maxSpeed);
             }
         }
+        attackOver = true;
         yield return null;
     }
 
@@ -54,12 +64,11 @@ public class SpiralAttack : MonoBehaviour, Comportement
         bulletBoss.GetComponent<Rigidbody2D>().velocity = new Vector2(projectileMoveDirection.x, projectileMoveDirection.y);
     }
 
-    void Comportement.Attack()
+    [Button]
+    public void Attack()
     {
-        Spiral();
+        attackOver=false;
+        StartCoroutine(Spiral());
     }
-        void Comportement.Stop()
-    {
-        return;
-    }
+
 }
