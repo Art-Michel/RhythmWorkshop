@@ -10,7 +10,8 @@ public class BossComportement : MonoBehaviour
     [SerializeField] LazerMid lazerMid;
     [SerializeField] LAZERVertical lazerVert;
     [SerializeField] List<int> attacks = new List<int>();
-    [SerializeField] float delayAttack;
+    float delayAttack;
+    [SerializeField] float maxDelayAttack;
     public int a;
 
     [Button]
@@ -18,6 +19,7 @@ public class BossComportement : MonoBehaviour
     {
         if (a < attacks.Count)
         {
+            delayAttack=maxDelayAttack;
             ListAttacks();
         }
     }
@@ -33,7 +35,7 @@ public class BossComportement : MonoBehaviour
                 StartCoroutine(Spirale());
                 break;
             case 3:
-                MidLazer();
+                StartCoroutine(MidLazer());
                 break;
             case 4:
                 StartCoroutine(VertLazer());
@@ -55,7 +57,7 @@ public class BossComportement : MonoBehaviour
 
     IEnumerator Spirale()
     {
-
+        delayAttack-= maxDelayAttack/2;
         spiraleAttack.Attack();
 
         yield return new WaitForSeconds(delayAttack);
@@ -68,12 +70,15 @@ public class BossComportement : MonoBehaviour
     }
 
 
-    void MidLazer()
+    IEnumerator MidLazer()
     {
         Debug.Log("attacks");
         lazerMid.Attack();
+        delayAttack-=maxDelayAttack/2;
+        yield return new WaitForSeconds(delayAttack);
         a++;
         AttacksPhase1();
+        StopCoroutine(MidLazer());
     }
 
     IEnumerator VertLazer()

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
 
-public class BossMovement : LocalManager<BossMovement>
+public class BossMovement : MonoBehaviour
 {
     bool goRight;
     bool isMovingSide;
@@ -40,19 +40,19 @@ public class BossMovement : LocalManager<BossMovement>
 
         if (goCenter == true)
         {
-            StartCoroutine(Move2Center());
+            StartCoroutine(MoveToCenter());
             chrono += Time.deltaTime;
         }
         if (goUp == true)
         {
-            StartCoroutine(Move2Up());
+            StartCoroutine(MoveToUp());
             chrono += Time.deltaTime;
         }
     }
 
-    IEnumerator Move2Center()
+    IEnumerator MoveToCenter()
     {
-        transform.position = new Vector2(Mathf.Lerp(transform.position.x, centerMap.position.x, chrono*speedMov), Mathf.Lerp(transform.position.y, centerMap.position.y, chrono));
+        transform.position = new Vector2(Mathf.Lerp(transform.position.x, centerMap.position.x, chrono*speedMov), Mathf.Lerp(transform.position.y, centerMap.position.y, chrono*speedMov));
 
         isMovingSide = false;
         goCenter = true;
@@ -62,14 +62,14 @@ public class BossMovement : LocalManager<BossMovement>
             transform.position = centerMap.position;
             goCenter = false;
             chrono = 0;
-            StopCoroutine(Move2Center());
+            StopCoroutine(MoveToCenter());
         }
         yield return null;
     }
 
-    IEnumerator Move2Up()
+    IEnumerator MoveToUp()
     {
-        transform.position = new Vector2(Mathf.Lerp(transform.position.x, upMap.position.x, chrono), Mathf.Lerp(transform.position.y, upMap.position.y, chrono));
+        transform.position = new Vector2(Mathf.Lerp(transform.position.x, upMap.position.x, chrono*speedMov), Mathf.Lerp(transform.position.y, upMap.position.y, chrono*speedMov));
 
         goUp = true;
 
@@ -82,7 +82,7 @@ public class BossMovement : LocalManager<BossMovement>
             time=0;
             x=pos.x;
             pos = transform.position;
-            StopCoroutine(Move2Up());
+            StopCoroutine(MoveToUp());
         }
 
         yield return null;
