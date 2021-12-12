@@ -10,6 +10,8 @@ TagManager:
   - West
   - East
   - Projectile
+  - Enemy
+  - Missile
   layers:
   - Default
   - TransparentFX

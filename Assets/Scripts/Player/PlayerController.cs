@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float _speed;
     float _easeInValue;
     [SerializeField] float _easeInSpeed;
-
+    Rigidbody _rb;
     [SerializeField] GameObject _playerBody;
 
     private void Awake()
@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
         _isMoving = false;
         _wantedDirection = Vector2.zero;
         _easeInValue = 0;
+        _rb = GetComponent<Rigidbody>();
     }
 
     private void Update()
@@ -35,6 +36,8 @@ public class PlayerController : MonoBehaviour
             EaseInMovement();
             Move();
         }
+        if (_rb.IsSleeping())
+            _rb.WakeUp();
     }
 
     private void ReadMovementInputs(InputAction.CallbackContext obj)

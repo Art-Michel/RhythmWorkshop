@@ -38,7 +38,7 @@ public class Missile : MonoBehaviour
 
     private void UpdateBossPosition()
     {
-        //_p2 = BossHp.Instance.transform.position;
+        _p2 = BossHp.Instance.transform.position;
     }
 
     private void Explode()
