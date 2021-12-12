@@ -55,6 +55,7 @@ public class LazerMid : MonoBehaviour
 
             if (lazerList.Count == 0)
             {
+                LAZERBoss.GetComponent<LAZER>().color.a=15;
                 StopAllCoroutines();
             }
         }

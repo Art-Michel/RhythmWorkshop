@@ -9,6 +9,7 @@ public class BossMovement : MonoBehaviour
     bool isMovingSide;
     [SerializeField] bool goCenter;
     [SerializeField] bool goUp;
+    public bool isUp;
 
     Vector3 pos;
     [SerializeField] float speed;
@@ -52,7 +53,7 @@ public class BossMovement : MonoBehaviour
 
     IEnumerator MoveToCenter()
     {
-        transform.position = new Vector2(Mathf.Lerp(transform.position.x, centerMap.position.x, chrono*speedMov), Mathf.Lerp(transform.position.y, centerMap.position.y, chrono*speedMov));
+        transform.position = new Vector2(Mathf.Lerp(transform.position.x, centerMap.position.x, chrono * speedMov), Mathf.Lerp(transform.position.y, centerMap.position.y, chrono * speedMov));
 
         isMovingSide = false;
         goCenter = true;
@@ -62,6 +63,7 @@ public class BossMovement : MonoBehaviour
             transform.position = centerMap.position;
             goCenter = false;
             chrono = 0;
+            isUp = false;
             StopCoroutine(MoveToCenter());
         }
         yield return null;
@@ -69,7 +71,7 @@ public class BossMovement : MonoBehaviour
 
     IEnumerator MoveToUp()
     {
-        transform.position = new Vector2(Mathf.Lerp(transform.position.x, upMap.position.x, chrono*speedMov), Mathf.Lerp(transform.position.y, upMap.position.y, chrono*speedMov));
+        transform.position = new Vector2(Mathf.Lerp(transform.position.x, upMap.position.x, chrono * speedMov), Mathf.Lerp(transform.position.y, upMap.position.y, chrono * speedMov));
 
         goUp = true;
 
@@ -79,12 +81,25 @@ public class BossMovement : MonoBehaviour
             goUp = false;
             isMovingSide = true;
             chrono = 0;
-            time=0;
-            x=pos.x;
+            time = 0;
+            isUp = true;
+            x = pos.x;
             pos = transform.position;
             StopCoroutine(MoveToUp());
         }
 
         yield return null;
+    }
+
+    public void Move()
+    {
+        if (isUp == true)
+        {
+            StartCoroutine(MoveToCenter());
+        }
+        if (isUp == false)
+        {
+            StartCoroutine(MoveToUp());
+        }
     }
 }

@@ -21,6 +21,7 @@ public class CircleShoot : MonoBehaviour
     Vector2 startPoint;
     Vector2 projectileVector;
     Vector2 projectileMoveDirection;
+    float angle = 0f;
 
     float radius, moveSpeed;
 
@@ -45,7 +46,6 @@ public class CircleShoot : MonoBehaviour
     void SpawnProjectiles(int numberOfProjectiles)
     {
         float angleStep = 360f / numberOfProjectiles;
-        float angle = 0f;
 
         for (int i = 0; i <= numberOfProjectiles - 1; i++)
         {
@@ -56,10 +56,9 @@ public class CircleShoot : MonoBehaviour
             projectileMoveDirection = (projectileVector - startPoint).normalized * moveSpeed;
 
             SpawnBullet();
-
             angle += angleStep;
         }
-        
+        angle+=15;
     }
 
     void SpawnBullet()

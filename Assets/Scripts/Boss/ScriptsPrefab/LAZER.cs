@@ -10,19 +10,20 @@ public class LAZER : MonoBehaviour
     [SerializeField] GameObject child;
     [SerializeField] Material alphaChange;
     [SerializeField] float speed;
+    public Color color = new Color();
     // Start is called before the first frame update
 
     private void Start()
     {
-        chrono = maxLife;
-        Color color = alphaChange.color;
-        color.a =0.1f;
+        chrono = maxLife; 
+        color = alphaChange.color;
+        color.a = 0.1f;
         alphaChange.color = color;
     }
 
     private void Update()
     {
-        Color color = alphaChange.color;
+        color = alphaChange.color;
         color.a += 1f * Time.deltaTime * speed;
         alphaChange.color = color;
 
