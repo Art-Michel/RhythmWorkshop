@@ -120,8 +120,7 @@ GameObject:
   - component: {fileID: 7221469801655859417}
   - component: {fileID: 3809006903906931568}
   - component: {fileID: 1464336314704332070}
-  - component: {fileID: 370877959020847807}
-  - component: {fileID: 6997076978385713125}
+  - component: {fileID: -7087609783598057141}
   m_Layer: 0
   m_Name: preLAZER
   m_TagString: Untagged
@@ -163,7 +162,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6d07963fdaceb4249b0ffec5d265bcfc, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -214,7 +213,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &370877959020847807
+--- !u!114 &-7087609783598057141
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -223,31 +222,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4720954399699858378}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02978eb10a5ea7d408e6850e87665290, type: 3}
+  m_Script: {fileID: 11500000, guid: 403e9f16c98d5234da6fa5c2d599d4a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxLife: 2
   child: {fileID: 3587679617274473116}
   alphaChange: {fileID: 2100000, guid: 6d07963fdaceb4249b0ffec5d265bcfc, type: 2}
-  speed: 0.08
---- !u!50 &6997076978385713125
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4720954399699858378}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  speed: 0.15

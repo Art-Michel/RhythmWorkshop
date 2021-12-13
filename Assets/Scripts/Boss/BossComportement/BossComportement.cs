@@ -17,6 +17,7 @@ public class BossComportement : MonoBehaviour
 
     float delayAttack;
     [SerializeField] float maxDelayAttack;
+    [SerializeField] float difficultyAdd;
     public int a;
 
     private void Start()
@@ -25,21 +26,23 @@ public class BossComportement : MonoBehaviour
         newAttacks();
     }
 
+    private void Update()
+    {
+        maxDelayAttack = Mathf.Clamp(maxDelayAttack, 2, 10);
+    }
+
     [Button]
     void Attacks()
     {
-        Debug.Log("attack");
         if (phase == 1)
         {
             if (a < attacksPhase1.Count)
             {
-                Debug.Log("phase1");
                 delayAttack = maxDelayAttack;
                 ListAttacks();
             }
-            else if (a >= attacksPhase1.Count)
+            else
             {
-                Debug.Log("debut phase2");
                 a = 0;
                 phase++;
             }
@@ -59,7 +62,7 @@ public class BossComportement : MonoBehaviour
     {
         for (int i = 0; i < attacksPhase2.Count; i++)
         {
-            attacksPhase2[i] = Random.Range(1, 6);
+            attacksPhase2[i] = Random.Range(1, 11);
         }
     }
 
@@ -88,21 +91,39 @@ public class BossComportement : MonoBehaviour
         }
         if (phase == 2)
         {
-            switch (attacksPhase1[a])
+            switch (attacksPhase2[a])
             {
                 case 1:
-                    StartCoroutine(Circle());
-                    break;
                 case 2:
-                    StartCoroutine(Spirale());
-                    break;
                 case 3:
-                    StartCoroutine(MidLazer());
+                    StartCoroutine(Circle());
+                    maxDelayAttack -= difficultyAdd;
                     break;
+
                 case 4:
-                    StartCoroutine(VertLazer());
+                    StartCoroutine(Circle());
+                    StartCoroutine(Spirale());
+                    maxDelayAttack -= difficultyAdd;
                     break;
+
                 case 5:
+                case 6:
+                case 7:
+                    StartCoroutine(Spirale());
+                    maxDelayAttack -= difficultyAdd;
+                    break;
+
+                case 8:
+                    StartCoroutine(MidLazer());
+                    maxDelayAttack -= difficultyAdd;
+                    break;
+
+                case 9:
+                    StartCoroutine(VertLazer());
+                    maxDelayAttack -= difficultyAdd;
+                    break;
+
+                case 10:
                     StartCoroutine(MoveBoss());
                     break;
             }
@@ -161,6 +182,7 @@ public class BossComportement : MonoBehaviour
     IEnumerator MoveBoss()
     {
         bossMove.Move();
+        yield return new WaitForSeconds(0.2f);
         a++;
         Attacks();
         StopCoroutine(MoveBoss());

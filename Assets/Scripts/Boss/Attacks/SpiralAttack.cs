@@ -50,6 +50,7 @@ public class SpiralAttack : MonoBehaviour
                 angle += angleStep;
                 yield return new WaitForSeconds(maxSpeed);
             }
+            angle+=15;
         }
         attackOver = true;
         yield return null;

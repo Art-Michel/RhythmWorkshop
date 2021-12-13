@@ -2,31 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LAZER : MonoBehaviour
+public class LAZERVert : MonoBehaviour
 {
     Pool source;
     float chrono;
-
-    [SerializeField] float speed;
     [SerializeField] float maxLife;
-
-    [SerializeField] GameObject preLazer;
     [SerializeField] GameObject child;
-
     [SerializeField] Material alphaChange;
+    [SerializeField] float speed;
     Material changeMat;
-    public Color color = new Color();
+    Color color = new Color();
     // Start is called before the first frame update
 
     private void Start()
     {
+        child.SetActive(false);
         chrono = maxLife;
 
-        changeMat = new Material(alphaChange);
+        changeMat=new Material(alphaChange);
         color = changeMat.color;
         color.a = 0.1f;
         changeMat.color = color;
-        preLazer.GetComponent<SpriteRenderer>().material = changeMat;
+        gameObject.GetComponent<SpriteRenderer>().material=changeMat;
     }
 
     private void Update()
@@ -45,7 +42,6 @@ public class LAZER : MonoBehaviour
 
     public void Spawn(Pool pool)
     {
-        child.SetActive(false);
         source = pool;
     }
 

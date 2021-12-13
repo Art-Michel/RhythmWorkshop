@@ -31,7 +31,7 @@ public class LAZERVertical : MonoBehaviour
         LAZERBoss = pool.Get();
         LAZERBoss.SetActive(true);
         LAZERBoss.transform.position = spawnPoint;
-        LAZERBoss.GetComponent<LAZER>().Spawn(pool);
+        LAZERBoss.GetComponent<LAZERVert>().Spawn(pool);
         listLazer.Add(LAZERBoss);
     }
 
@@ -55,7 +55,7 @@ public class LAZERVertical : MonoBehaviour
         {
             yield return new WaitForSeconds(despawn);
 
-            listLazer[0].GetComponent<LAZER>().Return(pool);
+            listLazer[0].GetComponent<LAZERVert>().Return(pool);
             listLazer.RemoveAt(0);
 
             if (listLazer.Count == 0)

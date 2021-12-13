@@ -44,10 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02978eb10a5ea7d408e6850e87665290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0.15
   maxLife: 2
+  preLazer: {fileID: 4809095663792424531}
   child: {fileID: 4809095663110726494}
-  alphaChange: {fileID: 2100000, guid: 6d07963fdaceb4249b0ffec5d265bcfc, type: 2}
-  speed: 0.03
+  alphaChange: {fileID: 2100000, guid: 0a2771eda93428e49bd0cfd56d979d7d, type: 2}
+  color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &4809095663110726494
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,7 +211,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6d07963fdaceb4249b0ffec5d265bcfc, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
