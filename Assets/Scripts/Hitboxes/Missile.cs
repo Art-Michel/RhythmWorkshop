@@ -43,6 +43,8 @@ public class Missile : MonoBehaviour
 
     private void Explode()
     {
+        SoundManager.Instance.PlayexplosionLight();
+        BossHp.Instance.TakeDamage(10);
         Destroy(gameObject);
     }
 

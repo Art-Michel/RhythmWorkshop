@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.Rendering;
 using UnityEngine.UI;
@@ -9,6 +10,7 @@ using UnityEngine.UI;
 public class PlayerHealth : LocalManager<PlayerHealth>
 {
     CharacterController _charaCon;
+    [SerializeField] CinemachineImpulseListener _vcamImpulseListener;
 
     public float PlayerHP { get; private set; }
     float _maxHP = 3;
@@ -17,8 +19,6 @@ public class PlayerHealth : LocalManager<PlayerHealth>
     [SerializeField] VolumeProfile volume;
 
     bool _isInvulnerable;
-    float _invulnerabilityCooldown;
-    float _invulnerabilityWindow = 1.5f;
 
     float _healthRegenCooldown;
     float _healthRegenSpeed = 0.8f;
@@ -27,31 +27,24 @@ public class PlayerHealth : LocalManager<PlayerHealth>
     {
         PlayerHP = _maxHP;
         _healthRegenCooldown = 0;
-        _invulnerabilityCooldown = 0;
         _isInvulnerable = false;
         _charaCon = GetComponent<CharacterController>();
     }
 
     private void Update()
     {
-        VulnerabilityCooldown();
         PassiveRegeneration();
-    }
-
-    private void VulnerabilityCooldown()
-    {
-        if (_invulnerabilityCooldown > 0)
-            _invulnerabilityCooldown -= Time.deltaTime;
     }
 
     public void TakeDamage(float damageAmount)
     {
-        if (_invulnerabilityCooldown <= 0)
+        if (!_isInvulnerable)
         {
             PlayerHP -= damageAmount;
             UpdateHPBar();
             _healthRegenCooldown = 2;
-            _invulnerabilityCooldown = _invulnerabilityWindow;
+            StartCoroutine("HandleInvulnerability");
+            SoundManager.Instance.PlayplayerGetsHit();
         }
     }
 
@@ -63,7 +56,7 @@ public class PlayerHealth : LocalManager<PlayerHealth>
 
     public void Heal(float healAmount)
     {
-        PlayerHP += healAmount;
+        PlayerHP = Mathf.Clamp(PlayerHP += healAmount, 0, _maxHP);
         UpdateHPBar();
     }
 
@@ -80,11 +73,25 @@ public class PlayerHealth : LocalManager<PlayerHealth>
     {
         if (_healthRegenCooldown <= 0 && PlayerHP < _maxHP)
         {
-            PlayerHP += _healthRegenSpeed * Time.deltaTime;
-            PlayerHP = Mathf.Clamp(PlayerHP, 0, _maxHP);
+            PlayerHP = Mathf.Clamp(PlayerHP += _healthRegenSpeed * Time.deltaTime, 0, _maxHP);
             UpdateHPBar();
         }
         else
             _healthRegenCooldown -= Time.deltaTime;
+    }
+
+    private IEnumerator HandleInvulnerability()
+    {
+        _isInvulnerable = true;
+
+        yield return new WaitForSeconds(0.2f);
+        _vcamImpulseListener.enabled = false;
+
+        //Invulnerability Window of total 1.5sec
+        yield return new WaitForSeconds(1.3f);
+        _vcamImpulseListener.enabled = true;
+        _isInvulnerable = false;
+
+        yield return null;
     }
 }

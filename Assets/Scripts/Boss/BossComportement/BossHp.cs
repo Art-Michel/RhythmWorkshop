@@ -15,20 +15,15 @@ public class BossHp : LocalManager<BossHp>
         BossHealthPoints = _maxHP;
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Missile"))
-            TakeDamage(1);
-    }
-
     public void TakeDamage(float damageAmount)
     {
         BossHealthPoints -= damageAmount;
         UpdateHPBar();
+        SoundManager.Instance.PlaybossGruntLight();
     }
 
     private void UpdateHPBar()
     {
-        _hpBar.fillAmount = BossHealthPoints / _maxHP;
+        //_hpBar.fillAmount = BossHealthPoints / _maxHP;
     }
 }

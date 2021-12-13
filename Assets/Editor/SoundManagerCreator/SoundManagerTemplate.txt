@@ -1,0 +1,20 @@
+using System.Collections.Generic;
+using UnityEngine;
+using System;
+
+public class SoundManager : LocalManager<SoundManager>
+{
+    private AudioSource audioSource = null;
+    public List<AudioClip> clips = null;
+
+    protected override void Awake()
+    {
+	base.Awake();
+        audioSource = GetComponent<AudioSource>();
+    }
+
+    private void Play(AudioClip clipToPlay)
+    {
+        audioSource.PlayOneShot(clipToPlay);
+    }
+}

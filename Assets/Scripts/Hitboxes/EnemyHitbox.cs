@@ -9,7 +9,7 @@ public class EnemyHitbox : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Vector2 knockbackDirection = (PlayerHealth.Instance.transform.position - transform.position).normalized;
-            PlayerHealth.Instance.TakeDamage(1, 0.3f, knockbackDirection);
+            PlayerHealth.Instance.TakeDamage(1, 0.25f, knockbackDirection);
         }
     }
 }

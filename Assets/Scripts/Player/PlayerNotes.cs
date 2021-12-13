@@ -157,6 +157,7 @@ public class PlayerNotes : LocalManager<PlayerNotes>
         Instantiate(_goodFeedback, feedbackPos);
         note.Death();
         playerAttack.LaunchMissile(direction);
+        SoundManager.Instance.PlayGoodNote();
     }
 
     private void Perfect(Transform feedbackPos, Note note, Vector2 direction)
@@ -165,12 +166,14 @@ public class PlayerNotes : LocalManager<PlayerNotes>
         playerHealth.Heal(0.1f);
         note.Death();
         playerAttack.LaunchMissile(direction);
+        SoundManager.Instance.PlayperfectNote();
     }
 
     public void Miss(Transform feedbackPos, Note note)
     {
         Instantiate(_missFeedback, feedbackPos);
         note.Death();
+        SoundManager.Instance.PlaymissNote();
     }
 
     private void NorthNoteReleased(InputAction.CallbackContext obj)

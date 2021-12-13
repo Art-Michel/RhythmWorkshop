@@ -27,6 +27,6 @@ public class PlayerAttack : MonoBehaviour
             missile.GetComponent<Missile>().Init(transform.position, _westModifier.position);
         if (direction == Vector2.right)
             missile.GetComponent<Missile>().Init(transform.position, _eastModifier.position);
-
+        SoundManager.Instance.PlayLaunchMissile();
     }
 }
