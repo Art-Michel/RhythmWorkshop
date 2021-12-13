@@ -15,6 +15,7 @@ public class PlayerHealth : LocalManager<PlayerHealth>
     public float PlayerHP { get; private set; }
     float _maxHP = 3;
 
+    [SerializeField] GameObject _gameOverUiParent;
     [SerializeField] Image _hpBar;
     [SerializeField] GameObject lostMenu;
     [SerializeField] VolumeProfile volume;
@@ -51,8 +52,9 @@ public class PlayerHealth : LocalManager<PlayerHealth>
             PlayerHP -= damageAmount;
             UpdateHPBar();
             _healthRegenCooldown = 2;
-            StartCoroutine("HandleInvulnerability");
             SoundManager.Instance.PlayplayerGetsHit();
+
+            StartCoroutine("HandleInvulnerability");
         }
     }
 
@@ -101,5 +103,11 @@ public class PlayerHealth : LocalManager<PlayerHealth>
         _isInvulnerable = false;
 
         yield return null;
+    }
+
+    void GameOver()
+    {
+        _gameOverUiParent.SetActive(true);
+        gameObject.SetActive(false);
     }
 }

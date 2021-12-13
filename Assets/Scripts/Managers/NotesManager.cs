@@ -3,6 +3,7 @@ using NaughtyAttributes;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 
 public class NotesManager : LocalManager<NotesManager>
 {
@@ -12,11 +13,14 @@ public class NotesManager : LocalManager<NotesManager>
     [SerializeField] Transform _eastSpawner;
     [SerializeField] Pool _pool;
 
+    [SerializeField] TextMeshProUGUI _scoreUI;
+    [SerializeField] TextMeshProUGUI _comboUI;
+
     float _missedNotes = 0;
     float _goodedNotes = 0;
     float _perfectedNotes = 0;
     float _score;
-    float _combo;
+    float _currentCombo;
     float _longestCombo;
 
     public Queue<GameObject> _northNotes = new Queue<GameObject>();
@@ -28,7 +32,7 @@ public class NotesManager : LocalManager<NotesManager>
 
     void Start()
     {
-        _combo = 0;
+        _currentCombo = 0;
         _longestCombo = 0;
         _score = 0;
     }
@@ -68,31 +72,49 @@ public class NotesManager : LocalManager<NotesManager>
     public void AddMiss()
     {
         _missedNotes++;
-        _combo = 0;
+        _currentCombo = 0;
+        CalculateScore();
     }
 
     public void AddGood()
     {
         _goodedNotes++;
-        _combo++;
+        _currentCombo++;
         CalculateScore(100);
     }
 
     public void AddPerfect()
     {
         _perfectedNotes++;
-        _combo++;
+        _currentCombo++;
         CalculateScore(200);
     }
 
-    void CalculateScore(float additionnalScore)
+    void CalculateScore(float additionnalScore = 0)
     {
-        _score += additionnalScore + _combo * 10;
-        if (_combo > _longestCombo)
-            _longestCombo = _combo;
-        Debug.Log("Score: " + _score);
-        Debug.Log("Combo: " + _combo);
-        //ToDo display Score and current Combo
+        if (additionnalScore != 0)
+        {
+            _score += additionnalScore + _currentCombo * 10;
+            _scoreUI.text = ("Score: " + _score);
+            if (_currentCombo > _longestCombo)
+                _longestCombo = _currentCombo;
+        }
+        _comboUI.text = (_currentCombo.ToString());
+        _comboUI.color = RemapColor(0, 30, Color.white, Color.red, _currentCombo);
+        _comboUI.fontSize = Remap(0, 30, 32, 64, _currentCombo);
+        Debug.Log("Combo: " + _currentCombo);
         //ToDo Display Score, longest Combo, and number of each miss, good and perfect in Game Over Screen
+    }
+
+    float Remap(float iMin, float iMax, float oMin, float oMax, float v)
+    {
+        float t = Mathf.InverseLerp(iMin, iMax, v);
+        return Mathf.Lerp(oMin, oMax, t);
+    }
+
+    Color RemapColor(float iMin, float iMax, Color color1, Color color2, float v)
+    {
+        float t = Mathf.InverseLerp(iMin, iMax, v);
+        return Color.Lerp(color1, color2, t);
     }
 }

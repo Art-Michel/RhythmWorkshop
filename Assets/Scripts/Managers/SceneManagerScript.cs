@@ -9,10 +9,12 @@ public class SceneManagerScript : MonoBehaviour
     {
         SceneManager.LoadScene("MenuPrincipal");
     }
+    
     public void Game()
     {
         SceneManager.LoadScene("SceneArthur");
     }
+
     public void Quit()
     {
         Application.Quit();
