@@ -157,7 +157,7 @@ public class PlayerNotes : LocalManager<PlayerNotes>
         Instantiate(_goodFeedback, feedbackPos);
         note.Death();
         playerAttack.LaunchMissile(direction);
-        NotesManager.Instance.AddGood();
+        ScoreManager.Instance.AddGood();
         SoundManager.Instance.PlayGoodNote();
     }
 
@@ -167,7 +167,7 @@ public class PlayerNotes : LocalManager<PlayerNotes>
         playerHealth.Heal(0.1f);
         note.Death();
         playerAttack.LaunchMissile(direction);
-        NotesManager.Instance.AddPerfect();
+        ScoreManager.Instance.AddPerfect();
         SoundManager.Instance.PlayperfectNote();
     }
 
@@ -175,7 +175,7 @@ public class PlayerNotes : LocalManager<PlayerNotes>
     {
         Instantiate(_missFeedback, feedbackPos);
         note.Death();
-        NotesManager.Instance.AddMiss();
+        ScoreManager.Instance.AddMiss();
         SoundManager.Instance.PlaymissNote();
     }
 

@@ -15,7 +15,6 @@ public class PlayerHealth : LocalManager<PlayerHealth>
     public float PlayerHP { get; private set; }
     float _maxHP = 3;
 
-    [SerializeField] GameObject _gameOverUiParent;
     [SerializeField] Image _hpBar;
     [SerializeField] GameObject lostMenu;
     [SerializeField] VolumeProfile volume;
@@ -51,17 +50,18 @@ public class PlayerHealth : LocalManager<PlayerHealth>
         {
             PlayerHP -= damageAmount;
             UpdateHPBar();
-            _healthRegenCooldown = 2;
             SoundManager.Instance.PlayplayerGetsHit();
-
+            _healthRegenCooldown = 2;
             StartCoroutine("HandleInvulnerability");
+            if (PlayerHP <= 0)
+                GameOver();
         }
     }
 
     public void TakeDamage(float damageAmount, float knockbackAmount, Vector2 knockbackDirection)
     {
-        TakeDamage(damageAmount);
         _charaCon.Move(knockbackDirection * knockbackAmount);
+        TakeDamage(damageAmount);
     }
 
     public void Heal(float healAmount)
@@ -107,7 +107,7 @@ public class PlayerHealth : LocalManager<PlayerHealth>
 
     void GameOver()
     {
-        _gameOverUiParent.SetActive(true);
+        ScoreManager.Instance.DisplayGameOverScreen();
         gameObject.SetActive(false);
     }
 }
