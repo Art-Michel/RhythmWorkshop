@@ -16,6 +16,7 @@ public class PlayerHealth : LocalManager<PlayerHealth>
     float _maxHP = 3;
 
     [SerializeField] Image _hpBar;
+    [SerializeField] GameObject lostMenu;
     [SerializeField] VolumeProfile volume;
 
     bool _isInvulnerable;
@@ -35,6 +36,12 @@ public class PlayerHealth : LocalManager<PlayerHealth>
     private void Update()
     {
         PassiveRegeneration();
+
+        if (PlayerHP <= 0)
+        {
+            lostMenu.SetActive(true);
+            gameObject.SetActive(false);
+        }
     }
 
     public void TakeDamage(float damageAmount)
@@ -88,8 +95,8 @@ public class PlayerHealth : LocalManager<PlayerHealth>
         yield return new WaitForSeconds(0.2f);
         _vcamImpulseListener.enabled = false;
 
-        //Invulnerability Window of total 1.5sec
-        yield return new WaitForSeconds(1.3f);
+        //Invulnerability Window of total 0.7sec
+        yield return new WaitForSeconds(0.5f);
         _vcamImpulseListener.enabled = true;
         _isInvulnerable = false;
 
