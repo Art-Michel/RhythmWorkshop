@@ -5,10 +5,9 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     Pool source;
-    [SerializeField] float speed;
     // Start is called before the first frame update
 
-    public void OnTriggerEnter2D(Collider2D other)
+    public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Sides"))
         {

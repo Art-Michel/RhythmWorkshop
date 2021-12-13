@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4809095663031050722}
   - component: {fileID: 3694963481233376468}
+  - component: {fileID: 7398273353891832760}
   m_Layer: 0
   m_Name: PivotLazer
   m_TagString: Untagged
@@ -50,6 +51,18 @@ MonoBehaviour:
   child: {fileID: 4809095663110726494}
   alphaChange: {fileID: 2100000, guid: 0a2771eda93428e49bd0cfd56d979d7d, type: 2}
   color: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &7398273353891832760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4809095663031050723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a852a3b8a96e2ee489e898b36718be3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4809095663110726494
 GameObject:
   m_ObjectHideFlags: 0
@@ -60,7 +73,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4809095663110726493}
   - component: {fileID: 4809095663110726467}
-  - component: {fileID: 4809095663110726492}
+  - component: {fileID: 4920498960854384488}
+  - component: {fileID: 6416766182246551301}
   m_Layer: 0
   m_Name: LAZER
   m_TagString: Untagged
@@ -133,32 +147,31 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &4809095663110726492
-BoxCollider2D:
+--- !u!114 &4920498960854384488
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4809095663110726494}
   m_Enabled: 1
-  m_Density: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a852a3b8a96e2ee489e898b36718be3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &6416766182246551301
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4809095663110726494}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Size: {x: 0.9999999, y: 1.0000002, z: 5.1039066}
+  m_Center: {x: -0.000000042631225, y: -5.684341e-14, z: -0.017156482}
 --- !u!1 &4809095663792424531
 GameObject:
   m_ObjectHideFlags: 0

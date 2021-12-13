@@ -22,14 +22,14 @@ public class CircleShoot : MonoBehaviour
     Vector2 projectileVector;
     Vector2 projectileMoveDirection;
     float angle = 0f;
+    [SerializeField] float moveSpeed;
 
-    float radius, moveSpeed;
+    float radius;
 
     // Use this for initialization
     public void Start()
     {
         radius = 5f;
-        moveSpeed = 5f;
     }
 
     // Update is called once per frame
@@ -68,7 +68,7 @@ public class CircleShoot : MonoBehaviour
         bulletBoss.transform.position = spawn.position;
 
         bulletBoss.GetComponent<Bullet>().Spawn(pool);
-        bulletBoss.GetComponent<Rigidbody2D>().velocity = new Vector2(projectileMoveDirection.x, projectileMoveDirection.y);
+        bulletBoss.GetComponent<Rigidbody>().velocity = new Vector2(projectileMoveDirection.x, projectileMoveDirection.y);
 
         spawnRate = maxRate;
     }

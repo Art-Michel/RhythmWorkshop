@@ -16,14 +16,13 @@ public class LAZERVert : MonoBehaviour
 
     private void Start()
     {
-        child.SetActive(false);
         chrono = maxLife;
 
-        changeMat=new Material(alphaChange);
+        changeMat = new Material(alphaChange);
         color = changeMat.color;
         color.a = 0.1f;
         changeMat.color = color;
-        gameObject.GetComponent<SpriteRenderer>().material=changeMat;
+        gameObject.GetComponent<SpriteRenderer>().material = changeMat;
     }
 
     private void Update()
@@ -42,11 +41,16 @@ public class LAZERVert : MonoBehaviour
 
     public void Spawn(Pool pool)
     {
+        child.SetActive(false);
         source = pool;
     }
 
     public void Return(Pool pool)
     {
+        color = changeMat.color;
+        color.a = 0.1f;
+        changeMat.color = color;
+        child.SetActive(false);
         source.Back(gameObject);
     }
 

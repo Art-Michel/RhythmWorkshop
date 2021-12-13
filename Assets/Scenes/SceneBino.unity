@@ -1036,6 +1036,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 22297986}
     - target: {fileID: 2028197243122866291, guid: 9fbbf046d499c30458a770585af46978, type: 3}
+      propertyPath: difficultyAdd
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 2028197243122866291, guid: 9fbbf046d499c30458a770585af46978, type: 3}
       propertyPath: attacks.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -1153,11 +1157,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2028197243122866291, guid: 9fbbf046d499c30458a770585af46978, type: 3}
       propertyPath: attacksPhase1.Array.size
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2028197243122866291, guid: 9fbbf046d499c30458a770585af46978, type: 3}
       propertyPath: attacksPhase2.Array.size
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2028197243122866291, guid: 9fbbf046d499c30458a770585af46978, type: 3}
       propertyPath: attacksPhase1.Array.data[0]
@@ -1181,7 +1185,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2028197243122866291, guid: 9fbbf046d499c30458a770585af46978, type: 3}
       propertyPath: attacksPhase2.Array.data[0]
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2028197243122866300, guid: 9fbbf046d499c30458a770585af46978, type: 3}
       propertyPath: m_RootOrder
@@ -1232,6 +1236,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2028197243122866302, guid: 9fbbf046d499c30458a770585af46978, type: 3}
+      propertyPath: maxX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2028197243122866302, guid: 9fbbf046d499c30458a770585af46978, type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2028197243122866302, guid: 9fbbf046d499c30458a770585af46978, type: 3}
       propertyPath: upMap
       value: 
       objectReference: {fileID: 671443927}
@@ -1253,12 +1265,16 @@ PrefabInstance:
       objectReference: {fileID: 897131651}
     - target: {fileID: 2028197243177816647, guid: 9fbbf046d499c30458a770585af46978, type: 3}
       propertyPath: numberOfProjectiles
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2028197243724229970, guid: 9fbbf046d499c30458a770585af46978, type: 3}
       propertyPath: pool
       value: 
       objectReference: {fileID: 2112386551}
+    - target: {fileID: 2028197243724229970, guid: 9fbbf046d499c30458a770585af46978, type: 3}
+      propertyPath: maxProj
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 2028197244734218808, guid: 9fbbf046d499c30458a770585af46978, type: 3}
       propertyPath: pool
       value: 

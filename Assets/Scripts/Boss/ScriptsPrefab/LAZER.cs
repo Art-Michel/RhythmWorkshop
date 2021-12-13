@@ -51,6 +51,10 @@ public class LAZER : MonoBehaviour
 
     public void Return(Pool pool)
     {
+        color = changeMat.color;
+        color.a = 0.1f;
+        changeMat.color = color;
+        child.SetActive(false);
         source.Back(gameObject);
     }
 

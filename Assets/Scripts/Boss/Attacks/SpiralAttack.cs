@@ -62,7 +62,7 @@ public class SpiralAttack : MonoBehaviour
         bulletBoss.SetActive(true);
         bulletBoss.transform.position = spawn.position;
         bulletBoss.GetComponent<Bullet>().Spawn(pool);
-        bulletBoss.GetComponent<Rigidbody2D>().velocity = new Vector2(projectileMoveDirection.x, projectileMoveDirection.y);
+        bulletBoss.GetComponent<Rigidbody>().velocity = new Vector2(projectileMoveDirection.x, projectileMoveDirection.y);
     }
 
     [Button]

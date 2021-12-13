@@ -29,6 +29,7 @@ public class PlayerHealth : LocalManager<PlayerHealth>
         _healthRegenCooldown = 0;
         _isInvulnerable = false;
         _charaCon = GetComponent<CharacterController>();
+        UpdateHPBar();
     }
 
     private void Update()
