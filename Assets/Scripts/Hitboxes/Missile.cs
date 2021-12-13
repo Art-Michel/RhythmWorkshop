@@ -5,13 +5,15 @@ using UnityEngine;
 
 public class Missile : MonoBehaviour
 {
+    Pool _pool;
     float _t;
     Vector2 _p0;
     Vector2 _p1;
     Vector2 _p2;
 
-    public void Init(Vector2 startingPoint, Vector2 intermidiatePoint)
+    public void Init(Vector2 startingPoint, Vector2 intermidiatePoint, Pool pool)
     {
+        this._pool = pool; 
         _t = 0;
         _p0 = startingPoint;
         _p1 = intermidiatePoint;
@@ -45,7 +47,7 @@ public class Missile : MonoBehaviour
     {
         SoundManager.Instance.PlayexplosionLight();
         BossHp.Instance.TakeDamage(10);
-        Destroy(gameObject);
+        _pool.Back(gameObject);
     }
 
     Vector2 LerpPositionBezier()

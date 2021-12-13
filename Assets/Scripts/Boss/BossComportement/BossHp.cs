@@ -24,6 +24,6 @@ public class BossHp : LocalManager<BossHp>
 
     private void UpdateHPBar()
     {
-        //_hpBar.fillAmount = BossHealthPoints / _maxHP;
+        _hpBar.fillAmount = BossHealthPoints / _maxHP;
     }
 }

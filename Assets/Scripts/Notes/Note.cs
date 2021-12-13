@@ -5,38 +5,47 @@ using System.Collections.Generic;
 
 public class Note : MonoBehaviour
 {
+    Pool _pool;
     public Vector3 NoteDirection;
     [SerializeField] float _speed;
     [SerializeField] float _lifeSpan;
     float timer;
 
-    public void InitializeNorthNote(Transform noteParent)
+    public void InitializeNorthNote(Transform noteParent, Pool pool)
     {
+        this._pool = pool;
         transform.parent = noteParent;
+        transform.position = transform.parent.position;
         NotesManager.Instance._northNotes.Enqueue(gameObject);
         NoteDirection = Vector3.down;
         timer = 0;
     }
 
-    public void InitializeWestNote(Transform noteParent)
+    public void InitializeWestNote(Transform noteParent, Pool pool)
     {
+        this._pool = pool;
         transform.parent = noteParent;
+        transform.position = transform.parent.position;
         NotesManager.Instance._westNotes.Enqueue(gameObject);
         NoteDirection = Vector3.right;
         timer = 0;
     }
 
-    public void InitializeEastNote(Transform noteParent)
+    public void InitializeEastNote(Transform noteParent, Pool pool)
     {
+        this._pool = pool;
         transform.parent = noteParent;
+        transform.position = transform.parent.position;
         NotesManager.Instance._eastNotes.Enqueue(gameObject);
         NoteDirection = Vector3.left;
         timer = 0;
     }
 
-    public void InitializeSouthNote(Transform noteParent)
+    public void InitializeSouthNote(Transform noteParent, Pool pool)
     {
+        this._pool = pool;
         transform.parent = noteParent;
+        transform.position = transform.parent.position;
         NotesManager.Instance._southNotes.Enqueue(gameObject);
         NoteDirection = Vector3.up;
         timer = 0;
@@ -78,22 +87,22 @@ public class Note : MonoBehaviour
         {
             case "North":
                 NotesManager.Instance._northNotes.Dequeue();
-                Destroy(gameObject);
+                _pool.Back(gameObject);
                 break;
 
             case "South":
                 NotesManager.Instance._southNotes.Dequeue();
-                Destroy(gameObject);
+                _pool.Back(gameObject);
                 break;
 
             case "East":
                 NotesManager.Instance._eastNotes.Dequeue();
-                Destroy(gameObject);
+                _pool.Back(gameObject);
                 break;
 
             case "West":
                 NotesManager.Instance._westNotes.Dequeue();
-                Destroy(gameObject);
+                _pool.Back(gameObject);
                 break;
         }
     }

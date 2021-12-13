@@ -5,6 +5,8 @@ using NaughtyAttributes;
 
 public class PlayerAttack : MonoBehaviour
 {
+    [SerializeField] Pool _pool;
+
     [SerializeField] GameObject _missile;
     [SerializeField] Transform _enemyPos;
     [SerializeField] Transform _northModifier;
@@ -18,15 +20,17 @@ public class PlayerAttack : MonoBehaviour
 
     public void LaunchMissile(Vector2 direction)
     {
-        GameObject missile = Instantiate(_missile, transform.position, transform.rotation);
+        GameObject missile = _pool.Get();
+        missile.SetActive(true);
+        missile.transform.position = transform.position;
         if (direction == Vector2.up)
-            missile.GetComponent<Missile>().Init(transform.position, _northModifier.position);
+            missile.GetComponent<Missile>().Init(transform.position, _northModifier.position, _pool);
         if (direction == Vector2.down)
-            missile.GetComponent<Missile>().Init(transform.position, _southModifier.position);
+            missile.GetComponent<Missile>().Init(transform.position, _southModifier.position, _pool);
         if (direction == Vector2.left)
-            missile.GetComponent<Missile>().Init(transform.position, _westModifier.position);
+            missile.GetComponent<Missile>().Init(transform.position, _westModifier.position, _pool);
         if (direction == Vector2.right)
-            missile.GetComponent<Missile>().Init(transform.position, _eastModifier.position);
+            missile.GetComponent<Missile>().Init(transform.position, _eastModifier.position, _pool);
         SoundManager.Instance.PlayLaunchMissile();
     }
 }

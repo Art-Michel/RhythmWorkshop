@@ -10,6 +10,7 @@ public class NotesManager : LocalManager<NotesManager>
     [SerializeField] Transform _southSpawner;
     [SerializeField] Transform _westSpawner;
     [SerializeField] Transform _eastSpawner;
+    [SerializeField] Pool _pool;
 
     public Queue<GameObject> _northNotes = new Queue<GameObject>();
     public Queue<GameObject> _southNotes = new Queue<GameObject>();
@@ -21,28 +22,32 @@ public class NotesManager : LocalManager<NotesManager>
     [Button]
     void SpawnNoteNorth()
     {
-        GameObject obj = Instantiate(_notePrefab, _northSpawner);
-        obj.GetComponent<Note>().InitializeNorthNote(_northSpawner);
+        GameObject obj = _pool.Get();
+        obj.SetActive(true);
+        obj.GetComponent<Note>().InitializeNorthNote(_northSpawner, _pool);
     }
 
     [Button]
     void SpawnNoteSouth()
     {
-        GameObject obj = Instantiate(_notePrefab, _southSpawner);
-        obj.GetComponent<Note>().InitializeSouthNote(_southSpawner);
+        GameObject obj = _pool.Get();
+        obj.SetActive(true);
+        obj.GetComponent<Note>().InitializeSouthNote(_southSpawner, _pool);
     }
 
     [Button]
     void SpawnNoteWest()
     {
-        GameObject obj = Instantiate(_notePrefab, _westSpawner);
-        obj.GetComponent<Note>().InitializeWestNote(_westSpawner);
+        GameObject obj = _pool.Get();
+        obj.SetActive(true);
+        obj.GetComponent<Note>().InitializeWestNote(_westSpawner, _pool);
     }
 
     [Button]
     void SpawnNoteEast()
     {
-        GameObject obj = Instantiate(_notePrefab, _eastSpawner);
-        obj.GetComponent<Note>().InitializeEastNote(_eastSpawner);
+        GameObject obj = _pool.Get();
+        obj.SetActive(true);
+        obj.GetComponent<Note>().InitializeEastNote(_eastSpawner, _pool);
     }
 }
