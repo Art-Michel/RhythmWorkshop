@@ -1157,11 +1157,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2028197243122866291, guid: 9fbbf046d499c30458a770585af46978, type: 3}
       propertyPath: attacksPhase1.Array.size
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2028197243122866291, guid: 9fbbf046d499c30458a770585af46978, type: 3}
       propertyPath: attacksPhase2.Array.size
-      value: 20
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2028197243122866291, guid: 9fbbf046d499c30458a770585af46978, type: 3}
       propertyPath: attacksPhase1.Array.data[0]
@@ -1295,5 +1295,6 @@ PrefabInstance:
       propertyPath: pool
       value: 
       objectReference: {fileID: 1677970758}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2028197244734218809, guid: 9fbbf046d499c30458a770585af46978, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9fbbf046d499c30458a770585af46978, type: 3}

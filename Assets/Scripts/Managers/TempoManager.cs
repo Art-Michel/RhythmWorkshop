@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class TempoManager : MonoBehaviour
 {
-    public float bpm;
+    [SerializeField] float bpm;
     public float maxRate;
     float beatTime;
+
+    [SerializeField] Animator animBossHp;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +31,6 @@ public class TempoManager : MonoBehaviour
 
     public virtual void OnTheBeat()
     {
-
+        animBossHp.SetTrigger("Boom");
     }
 }

@@ -26,7 +26,6 @@ public class CircleShoot : TempoManager
     public void Start()
     {
         radius = 5f;
-        canAttack =true;
     }
 
     void SpawnProjectiles(int numberOfProjectiles)
