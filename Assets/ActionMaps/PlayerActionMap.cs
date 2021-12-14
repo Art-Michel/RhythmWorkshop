@@ -57,6 +57,14 @@ public class @PlayerActionMap : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Start"",
+                    ""type"": ""Button"",
+                    ""id"": ""9acb2d9b-5505-4b59-a9aa-93b665cf9a71"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -312,6 +320,28 @@ public class @PlayerActionMap : IInputActionCollection, IDisposable
                     ""action"": ""EastNote"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b906e7b9-cf3a-43eb-9da5-6e639e0a6f97"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Start"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8c009722-65c1-4c6a-b486-cb725d621f15"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""Start"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -336,6 +366,7 @@ public class @PlayerActionMap : IInputActionCollection, IDisposable
         m_Movement_SouthNote = m_Movement.FindAction("SouthNote", throwIfNotFound: true);
         m_Movement_WestNote = m_Movement.FindAction("WestNote", throwIfNotFound: true);
         m_Movement_EastNote = m_Movement.FindAction("EastNote", throwIfNotFound: true);
+        m_Movement_Start = m_Movement.FindAction("Start", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -390,6 +421,7 @@ public class @PlayerActionMap : IInputActionCollection, IDisposable
     private readonly InputAction m_Movement_SouthNote;
     private readonly InputAction m_Movement_WestNote;
     private readonly InputAction m_Movement_EastNote;
+    private readonly InputAction m_Movement_Start;
     public struct MovementActions
     {
         private @PlayerActionMap m_Wrapper;
@@ -399,6 +431,7 @@ public class @PlayerActionMap : IInputActionCollection, IDisposable
         public InputAction @SouthNote => m_Wrapper.m_Movement_SouthNote;
         public InputAction @WestNote => m_Wrapper.m_Movement_WestNote;
         public InputAction @EastNote => m_Wrapper.m_Movement_EastNote;
+        public InputAction @Start => m_Wrapper.m_Movement_Start;
         public InputActionMap Get() { return m_Wrapper.m_Movement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -423,6 +456,9 @@ public class @PlayerActionMap : IInputActionCollection, IDisposable
                 @EastNote.started -= m_Wrapper.m_MovementActionsCallbackInterface.OnEastNote;
                 @EastNote.performed -= m_Wrapper.m_MovementActionsCallbackInterface.OnEastNote;
                 @EastNote.canceled -= m_Wrapper.m_MovementActionsCallbackInterface.OnEastNote;
+                @Start.started -= m_Wrapper.m_MovementActionsCallbackInterface.OnStart;
+                @Start.performed -= m_Wrapper.m_MovementActionsCallbackInterface.OnStart;
+                @Start.canceled -= m_Wrapper.m_MovementActionsCallbackInterface.OnStart;
             }
             m_Wrapper.m_MovementActionsCallbackInterface = instance;
             if (instance != null)
@@ -442,6 +478,9 @@ public class @PlayerActionMap : IInputActionCollection, IDisposable
                 @EastNote.started += instance.OnEastNote;
                 @EastNote.performed += instance.OnEastNote;
                 @EastNote.canceled += instance.OnEastNote;
+                @Start.started += instance.OnStart;
+                @Start.performed += instance.OnStart;
+                @Start.canceled += instance.OnStart;
             }
         }
     }
@@ -471,5 +510,6 @@ public class @PlayerActionMap : IInputActionCollection, IDisposable
         void OnSouthNote(InputAction.CallbackContext context);
         void OnWestNote(InputAction.CallbackContext context);
         void OnEastNote(InputAction.CallbackContext context);
+        void OnStart(InputAction.CallbackContext context);
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class ScoreManager : LocalManager<ScoreManager>
 {
@@ -9,7 +10,7 @@ public class ScoreManager : LocalManager<ScoreManager>
     [SerializeField] TextMeshProUGUI _gameOverResults;
     [SerializeField] TextMeshProUGUI _scoreUI;
     [SerializeField] TextMeshProUGUI _comboUI;
-
+    [SerializeField] GameObject _gameOverFirstButtonSelected;
     float _missedNotes = 0;
     float _goodedNotes = 0;
     float _perfectedNotes = 0;
@@ -55,8 +56,8 @@ public class ScoreManager : LocalManager<ScoreManager>
                 _longestCombo = _currentCombo;
         }
         _comboUI.text = (_currentCombo.ToString());
-        _comboUI.color = RemapColor(0, 30, Color.white, Color.red, _currentCombo);
-        _comboUI.fontSize = Remap(0, 30, 32, 64, _currentCombo);
+        _comboUI.color = RemapColor(0, 50, Color.white, Color.red, _currentCombo);
+        _comboUI.fontSize = Remap(0, 30, 24, 56, _currentCombo);
         Debug.Log("Combo: " + _currentCombo);
     }
 
@@ -69,6 +70,8 @@ public class ScoreManager : LocalManager<ScoreManager>
             +"Perfects: " + _perfectedNotes + "\n"
             +"Longest Combo: " + _longestCombo
         );
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(_gameOverFirstButtonSelected);
     }
 
     float Remap(float iMin, float iMax, float oMin, float oMax, float v)

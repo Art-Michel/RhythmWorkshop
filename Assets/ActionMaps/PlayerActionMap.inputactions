@@ -44,6 +44,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Start",
+                    "type": "Button",
+                    "id": "9acb2d9b-5505-4b59-a9aa-93b665cf9a71",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -297,6 +305,28 @@
                     "processors": "",
                     "groups": "Keyboard",
                     "action": "EastNote",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b906e7b9-cf3a-43eb-9da5-6e639e0a6f97",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Start",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8c009722-65c1-4c6a-b486-cb725d621f15",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
+                    "action": "Start",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

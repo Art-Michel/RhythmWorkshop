@@ -11,11 +11,23 @@ public class Note : MonoBehaviour
     [SerializeField] float _lifeSpan;
     float timer;
 
+    SpriteRenderer _spriteRenderer;
+    [SerializeField] Sprite _northSprite;
+    [SerializeField] Sprite _southSprite;
+    [SerializeField] Sprite _eastSprite;
+    [SerializeField] Sprite _westSprite;
+
+    private void Awake()
+    {
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
     public void InitializeNorthNote(Transform noteParent, Pool pool)
     {
         this._pool = pool;
         transform.parent = noteParent;
         transform.position = transform.parent.position;
+        _spriteRenderer.sprite = _northSprite;
         NotesManager.Instance._northNotes.Enqueue(gameObject);
         NoteDirection = Vector3.down;
         timer = 0;
@@ -26,6 +38,7 @@ public class Note : MonoBehaviour
         this._pool = pool;
         transform.parent = noteParent;
         transform.position = transform.parent.position;
+        _spriteRenderer.sprite = _westSprite;
         NotesManager.Instance._westNotes.Enqueue(gameObject);
         NoteDirection = Vector3.right;
         timer = 0;
@@ -36,6 +49,7 @@ public class Note : MonoBehaviour
         this._pool = pool;
         transform.parent = noteParent;
         transform.position = transform.parent.position;
+        _spriteRenderer.sprite = _eastSprite;
         NotesManager.Instance._eastNotes.Enqueue(gameObject);
         NoteDirection = Vector3.left;
         timer = 0;
@@ -46,6 +60,7 @@ public class Note : MonoBehaviour
         this._pool = pool;
         transform.parent = noteParent;
         transform.position = transform.parent.position;
+        _spriteRenderer.sprite = _southSprite;
         NotesManager.Instance._southNotes.Enqueue(gameObject);
         NoteDirection = Vector3.up;
         timer = 0;

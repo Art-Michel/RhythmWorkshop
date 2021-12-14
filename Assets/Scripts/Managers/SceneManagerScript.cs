@@ -9,7 +9,7 @@ public class SceneManagerScript : MonoBehaviour
     {
         SceneManager.LoadScene("MenuPrincipal");
     }
-    
+
     public void Game()
     {
         SceneManager.LoadScene("SceneArthur");
