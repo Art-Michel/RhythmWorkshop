@@ -422,6 +422,8 @@ GameObject:
   - component: {fileID: 2804746269611613607}
   - component: {fileID: 2059827657}
   - component: {fileID: 9024887223917147643}
+  - component: {fileID: 1026101193}
+  - component: {fileID: 1026101200}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -469,7 +471,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 0
-  m_Radius: 0.1
+  m_Radius: 0.073
   m_SlopeLimit: 0
   m_StepOffset: 0
   m_SkinWidth: 0.0001
@@ -504,8 +506,8 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 3
+  m_Constraints: 120
+  m_CollisionDetection: 1
 --- !u!212 &2804746269611613606
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -546,8 +548,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 0.25943398, b: 0.25943398, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 78b4a724b64bb044ba65107bcc0c4514, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -600,7 +602,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44071ae77f643a84dbba620f10152dab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _vcamImpulseListener: {fileID: 0}
   _hpBar: {fileID: 0}
+  lostMenu: {fileID: 0}
   volume: {fileID: 11400000, guid: e26c364d528591d4aa6f7677185b803f, type: 2}
 --- !u!114 &9024887223917147643
 MonoBehaviour:
@@ -614,12 +618,76 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 905ef448f90f2b34db921ebfe5087c9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _pool: {fileID: 0}
   _missile: {fileID: 9151841809677400618, guid: 5411fa855d9cc1741870138cd90d2e2b, type: 3}
   _enemyPos: {fileID: 0}
   _northModifier: {fileID: 1437121990}
   _southModifier: {fileID: 1977540485}
   _eastModifier: {fileID: 8093843795808272541}
   _westModifier: {fileID: 2810521106067890579}
+--- !u!114 &1026101193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2804746269611613613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8377985d2a96941489dabe27882fde28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pauseUI: {fileID: 0}
+  _pauseFirstButtonSelected: {fileID: 0}
+--- !u!114 &1026101200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2804746269611613613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd438dd108a0f284aa931a2da434f1d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ImpulseDefinition:
+    m_ImpulseChannel: 1
+    m_RawSignal: {fileID: 11400000, guid: 7b77582a61d895b4f97eaa4edcd75570, type: 2}
+    m_AmplitudeGain: 1
+    m_FrequencyGain: 1
+    m_RepeatMode: 0
+    m_Randomize: 1
+    m_TimeEnvelope:
+      m_AttackShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_DecayShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_AttackTime: 0
+      m_SustainTime: 0.2
+      m_DecayTime: 0.7
+      m_ScaleWithImpact: 1
+      m_HoldForever: 0
+    m_ImpactRadius: 100
+    m_DirectionMode: 0
+    m_DissipationMode: 2
+    m_DissipationDistance: 1000
+    m_PropagationSpeed: 343
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_IgnoreTag: 
+  m_UseImpactDirection: 0
+  m_ScaleImpactWithMass: 0
+  m_ScaleImpactWithSpeed: 0
 --- !u!1 &2804746269683924158
 GameObject:
   m_ObjectHideFlags: 0
@@ -646,7 +714,7 @@ Transform:
   m_GameObject: {fileID: 2804746269683924158}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 1.2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2804746269611613603}
   m_RootOrder: 0
@@ -690,8 +758,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -1
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_SortingOrder: -2
+  m_Sprite: {fileID: 21300000, guid: cc7166c38e24ac34a8aa8debd313fc3f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -10,6 +10,7 @@ public class GameManager : LocalManager<GameManager>
 
     private void Start() 
     {
+        Time.timeScale = 1;
         musicSource.clip = music;    
     }
 

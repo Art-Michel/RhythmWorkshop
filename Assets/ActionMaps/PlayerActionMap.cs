@@ -128,7 +128,7 @@ public class @PlayerActionMap : IInputActionCollection, IDisposable
                     ""id"": ""a82904aa-2ce2-438c-940f-cc4ee73e6060"",
                     ""path"": ""2DVector(mode=2)"",
                     ""interactions"": """",
-                    ""processors"": ""NormalizeVector2"",
+                    ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Move"",
                     ""isComposite"": true,

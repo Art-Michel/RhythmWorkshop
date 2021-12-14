@@ -21,6 +21,10 @@ public class NotesManager : LocalManager<NotesManager>
 
     [SerializeField] GameObject _notePrefab;
 
+    public void SpawnRandomNote()
+    {
+        
+    }
 
     [Button]
     void SpawnNoteNorth()

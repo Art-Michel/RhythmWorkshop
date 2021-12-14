@@ -32,6 +32,12 @@ public class ScoreManager : LocalManager<ScoreManager>
         CalculateScore();
     }
 
+    public void GetHit()
+    {
+        _currentCombo = 0;
+        CalculateScore();
+    }
+
     public void AddGood()
     {
         _goodedNotes++;
@@ -64,11 +70,11 @@ public class ScoreManager : LocalManager<ScoreManager>
     public void DisplayGameOverScreen()
     {
         _gameOverUiParent.SetActive(true);
-        _gameOverResults.text =(
+        _gameOverResults.text = (
             "Misses: " + _missedNotes + "\n"
-            +"Goods: " + _goodedNotes + "\n"
-            +"Perfects: " + _perfectedNotes + "\n"
-            +"Longest Combo: " + _longestCombo
+            + "Goods: " + _goodedNotes + "\n"
+            + "Perfects: " + _perfectedNotes + "\n"
+            + "Longest Combo: " + _longestCombo
         );
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(_gameOverFirstButtonSelected);

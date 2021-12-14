@@ -22,7 +22,7 @@ public class PlayerHealth : LocalManager<PlayerHealth>
     bool _isInvulnerable;
 
     float _healthRegenCooldown;
-    float _healthRegenSpeed = 0.8f;
+    float _healthRegenSpeed = 0.5f;
 
     private void Start()
     {
@@ -52,6 +52,7 @@ public class PlayerHealth : LocalManager<PlayerHealth>
             UpdateHPBar();
             SoundManager.Instance.PlayplayerGetsHit();
             _healthRegenCooldown = 2;
+            ScoreManager.Instance.GetHit();
             StartCoroutine("HandleInvulnerability");
             if (PlayerHP <= 0)
                 GameOver();
@@ -97,8 +98,8 @@ public class PlayerHealth : LocalManager<PlayerHealth>
         yield return new WaitForSeconds(0.2f);
         _vcamImpulseListener.enabled = false;
 
-        //Invulnerability Window of total 0.7sec
-        yield return new WaitForSeconds(0.5f);
+        //Invulnerability Window of total 1sec
+        yield return new WaitForSeconds(0.8f);
         _vcamImpulseListener.enabled = true;
         _isInvulnerable = false;
 
