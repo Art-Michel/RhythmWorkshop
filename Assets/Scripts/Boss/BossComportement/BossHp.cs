@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,8 +27,18 @@ public class BossHp : LocalManager<BossHp>
     {
         BossHealthPoints -= damageAmount;
         UpdateHPBar();
+        if (BossHealthPoints <= 0)
+        {
+            GameOver();
+        }
         tookDamage = true;
         SoundManager.Instance.PlaybossGruntLight();
+    }
+
+    void GameOver()
+    {
+        ScoreManager.Instance.DisplayWinScreen();
+        gameObject.SetActive(false);
     }
 
     private void UpdateHPBar()
@@ -42,15 +53,15 @@ public class BossHp : LocalManager<BossHp>
             chrono += Time.deltaTime;
             if (chrono >= 0.5f)
             {
-                chrono=0f;
+                chrono = 0f;
                 tookDamage = false;
             }
         }
 
         if (tookDamage == false)
         {
-            float timer=0f;
-            timer+=Time.deltaTime;
+            float timer = 0f;
+            timer += Time.deltaTime;
             oldBossHealthPoints = Mathf.Lerp(oldBossHealthPoints, BossHealthPoints, timer);
             _hpDamageBar.fillAmount = oldBossHealthPoints / _maxHP;
         }

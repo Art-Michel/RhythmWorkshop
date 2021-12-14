@@ -6,11 +6,19 @@ using UnityEngine.EventSystems;
 
 public class ScoreManager : LocalManager<ScoreManager>
 {
+    [SerializeField] PlayerController _playerController;
+    [SerializeField] PlayerPause _playerPause;
+
     [SerializeField] GameObject _gameOverUiParent;
     [SerializeField] TextMeshProUGUI _gameOverResults;
     [SerializeField] TextMeshProUGUI _scoreUI;
     [SerializeField] TextMeshProUGUI _comboUI;
     [SerializeField] GameObject _gameOverFirstButtonSelected;
+
+    [SerializeField] GameObject _winScreenUiParent;
+    [SerializeField] TextMeshProUGUI _winScreenResults;
+    [SerializeField] GameObject _winScreenFirstButtonSelected;
+
     float _missedNotes = 0;
     float _goodedNotes = 0;
     float _perfectedNotes = 0;
@@ -69,6 +77,8 @@ public class ScoreManager : LocalManager<ScoreManager>
 
     public void DisplayGameOverScreen()
     {
+        _playerController.enabled = false;
+        _playerPause.enabled = false;
         _gameOverUiParent.SetActive(true);
         _gameOverResults.text = (
             "Misses: " + _missedNotes + "\n"
@@ -78,6 +88,21 @@ public class ScoreManager : LocalManager<ScoreManager>
         );
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(_gameOverFirstButtonSelected);
+    }
+
+    public void DisplayWinScreen()
+    {
+        _playerController.enabled = false;
+        _playerPause.enabled = false;
+        _winScreenUiParent.SetActive(true);
+        _winScreenResults.text = (
+            "Misses: " + _missedNotes + "\n"
+            + "Goods: " + _goodedNotes + "\n"
+            + "Perfects: " + _perfectedNotes + "\n"
+            + "Longest Combo: " + _longestCombo
+        );
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(_winScreenFirstButtonSelected);
     }
 
     float Remap(float iMin, float iMax, float oMin, float oMax, float v)
