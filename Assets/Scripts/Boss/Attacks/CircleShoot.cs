@@ -2,25 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CircleShoot : MonoBehaviour
+public class CircleShoot : TempoManager
 {
     [SerializeField] Pool pool;
 
-    float spawnRate;
-
-    [SerializeField] float maxRate;
     [SerializeField] Transform spawn;
-    Vector3 dir = new Vector3(0, 0, 1);
-    GameObject bulletBoss;
 
     [SerializeField]
-    int numberOfProjectiles;
+    public int numberOfProjectiles;
 
     [SerializeField] bool canAttack;
 
     Vector2 startPoint;
     Vector2 projectileVector;
     Vector2 projectileMoveDirection;
+
     float angle = 0f;
     [SerializeField] float moveSpeed;
 
@@ -30,17 +26,7 @@ public class CircleShoot : MonoBehaviour
     public void Start()
     {
         radius = 5f;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        spawnRate -= Time.deltaTime;
-        if (spawnRate <= 0 && canAttack == true)
-        {
-            SpawnProjectiles(numberOfProjectiles);
-            spawnRate = maxRate;
-        }
+        canAttack =true;
     }
 
     void SpawnProjectiles(int numberOfProjectiles)
@@ -58,7 +44,7 @@ public class CircleShoot : MonoBehaviour
             SpawnBullet();
             angle += angleStep;
         }
-        angle+=15;
+        angle += 15;
     }
 
     void SpawnBullet()
@@ -70,7 +56,6 @@ public class CircleShoot : MonoBehaviour
         bulletBoss.GetComponent<Bullet>().Spawn(pool);
         bulletBoss.GetComponent<Rigidbody>().velocity = new Vector2(projectileMoveDirection.x, projectileMoveDirection.y);
 
-        spawnRate = maxRate;
     }
 
     public void Attack()
@@ -81,5 +66,13 @@ public class CircleShoot : MonoBehaviour
     public void Stop()
     {
         canAttack = false;
+    }
+
+    public override void OnTheBeat()
+    {
+        if (canAttack == true)
+        {
+            SpawnProjectiles(numberOfProjectiles);
+        }
     }
 }

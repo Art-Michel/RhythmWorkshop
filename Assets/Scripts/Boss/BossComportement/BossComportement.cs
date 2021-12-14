@@ -96,6 +96,7 @@ public class BossComportement : MonoBehaviour
                 case 1:
                 case 2:
                 case 3:
+                    circleAttack.numberOfProjectiles = 10;
                     StartCoroutine(Circle());
                     maxDelayAttack -= difficultyAdd;
                     break;

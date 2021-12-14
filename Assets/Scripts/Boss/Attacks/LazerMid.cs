@@ -15,7 +15,6 @@ public class LazerMid : MonoBehaviour
     int numberOfProjectiles;
 
     Vector2 startPoint;
-    float angle = 0f;
 
     [SerializeField] float resetTime;
 

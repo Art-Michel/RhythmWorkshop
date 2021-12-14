@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
 
-public class LAZERVertical : MonoBehaviour
+public class LAZERVertical : TempoManager
 {
     [SerializeField] Pool pool;
     [SerializeField] Transform spawnOrigin;
@@ -14,7 +14,7 @@ public class LAZERVertical : MonoBehaviour
     public bool attackOver;
 
     [SerializeField] float despawn;
-    [SerializeField] float maxRate;
+    float spawnRate;
 
     GameObject LAZERBoss;
 
@@ -24,6 +24,7 @@ public class LAZERVertical : MonoBehaviour
     {
         spawnPoint = spawnOrigin.position;
         attackOver = false;
+        spawnRate = maxRate;
     }
 
     void SpawnBullet()
@@ -43,7 +44,7 @@ public class LAZERVertical : MonoBehaviour
             SpawnBullet();
             spawnPoint += addPos;
 
-            yield return new WaitForSeconds(maxRate);
+            yield return new WaitForSeconds(spawnRate);
             StartCoroutine(ReturnLazer());
         }
         yield return null;

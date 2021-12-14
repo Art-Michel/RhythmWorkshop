@@ -1157,7 +1157,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2028197243122866291, guid: 9fbbf046d499c30458a770585af46978, type: 3}
       propertyPath: attacksPhase1.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2028197243122866291, guid: 9fbbf046d499c30458a770585af46978, type: 3}
       propertyPath: attacksPhase2.Array.size
@@ -1260,9 +1260,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2136911885}
     - target: {fileID: 2028197243177816647, guid: 9fbbf046d499c30458a770585af46978, type: 3}
+      propertyPath: bpm
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 2028197243177816647, guid: 9fbbf046d499c30458a770585af46978, type: 3}
       propertyPath: pool
       value: 
       objectReference: {fileID: 897131651}
+    - target: {fileID: 2028197243177816647, guid: 9fbbf046d499c30458a770585af46978, type: 3}
+      propertyPath: moveSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2028197243177816647, guid: 9fbbf046d499c30458a770585af46978, type: 3}
       propertyPath: numberOfProjectiles
       value: 7
