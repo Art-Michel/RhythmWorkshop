@@ -51,7 +51,8 @@ public class Missile : MonoBehaviour
         BossHp.Instance.TakeDamage(10);
         //Set child explosion active
 //        _spriteRenderer.enabled = false;
-        Invoke("BackInPool", 1.5f);
+//        Invoke("BackInPool", 1.5f);
+        BackInPool();
     }
 
     private void BackInPool()
