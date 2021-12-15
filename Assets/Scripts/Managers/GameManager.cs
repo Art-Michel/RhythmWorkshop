@@ -5,24 +5,41 @@ using NaughtyAttributes;
 
 public class GameManager : LocalManager<GameManager>
 {
-    [SerializeField] private AudioClip music;
-    [SerializeField] private AudioSource musicSource;
 
     private void Start() 
     {
         Time.timeScale = 1;
-        musicSource.clip = music;    
     }
 
     [Button]
     void PlayMusic()
     {
-        musicSource.Play();
+
     }
 
     [Button]
     void PauseMusic()
     {
-        musicSource.Pause();
+
+    }
+
+    public void UpInput()
+    {
+        Debug.Log("Up");
+    }
+
+    public void DownInput()
+    {
+        Debug.Log("Down");
+    }
+
+    public void LeftInput()
+    {
+        Debug.Log("Left");
+    }
+
+    public void RightInput()
+    {
+        Debug.Log("Right");
     }
 }
