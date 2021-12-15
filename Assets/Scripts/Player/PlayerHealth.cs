@@ -52,7 +52,7 @@ public class PlayerHealth : LocalManager<PlayerHealth>
             PlayerHP -= damageAmount;
             UpdateHPBar();
             SoundManager.Instance.PlayplayerGetsHit();
-            _healthRegenCooldown = 2;
+            _healthRegenCooldown = 2.5f;
             ScoreManager.Instance.GetHit();
             StartCoroutine("HandleInvulnerability");
             if (PlayerHP <= 0)

@@ -39,7 +39,7 @@ public class NotesManager : LocalManager<NotesManager>
         note.GetComponent<Note>().InitializeNorthNote(_northSpawner, _notePool);
         GameObject preNote = _preNotePool.Get();
         preNote.SetActive(true);
-        preNote.GetComponent<PreNote>().InitializePreNote(_northButton, _notePool);
+        preNote.GetComponent<PreNote>().InitializePreNote(_northButton, _preNotePool);
     }
 
     [Button]
@@ -50,7 +50,7 @@ public class NotesManager : LocalManager<NotesManager>
         note.GetComponent<Note>().InitializeSouthNote(_southSpawner, _notePool);
         GameObject preNote = _preNotePool.Get();
         preNote.SetActive(true);
-        preNote.GetComponent<PreNote>().InitializePreNote(_southButton, _notePool);
+        preNote.GetComponent<PreNote>().InitializePreNote(_southButton, _preNotePool);
     }
 
     [Button]
@@ -61,7 +61,7 @@ public class NotesManager : LocalManager<NotesManager>
         note.GetComponent<Note>().InitializeWestNote(_westSpawner, _notePool);
         GameObject preNote = _preNotePool.Get();
         preNote.SetActive(true);
-        preNote.GetComponent<PreNote>().InitializePreNote(_westButton, _notePool);
+        preNote.GetComponent<PreNote>().InitializePreNote(_westButton, _preNotePool);
     }
 
     [Button]
@@ -72,7 +72,7 @@ public class NotesManager : LocalManager<NotesManager>
         note.GetComponent<Note>().InitializeEastNote(_eastSpawner, _notePool);
         GameObject preNote = _preNotePool.Get();
         preNote.SetActive(true);
-        preNote.GetComponent<PreNote>().InitializePreNote(_eastButton, _notePool);
+        preNote.GetComponent<PreNote>().InitializePreNote(_eastButton, _preNotePool);
     }
 
 }
