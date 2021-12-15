@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 9151841809677400619}
   - component: {fileID: 9151841809677400629}
   - component: {fileID: 5167735618117819919}
-  - component: {fileID: 8957084645584204776}
   m_Layer: 0
   m_Name: Missile
   m_TagString: Missile
@@ -74,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f01844f195cc38840bed657a2daa4e33, type: 3}
+  m_Sprite: {fileID: 21300000, guid: df4a14a854955f34799707993eb1edf0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,6 +96,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a7df18bd250ac74bb96394a4535c1d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _kunaiSprite: {fileID: 21300000, guid: df4a14a854955f34799707993eb1edf0, type: 3}
+  _shurikenSprite: {fileID: 21300000, guid: 2d2df130958206f41a3db5c5bf4916ed, type: 3}
 --- !u!96 &5167735618117819919
 TrailRenderer:
   serializedVersion: 2
@@ -213,22 +214,3 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!95 &8957084645584204776
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9151841809677400618}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 4245c75a5eaa7be4fb8707333b095b78, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0

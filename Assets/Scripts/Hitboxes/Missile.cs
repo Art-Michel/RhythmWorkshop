@@ -7,15 +7,33 @@ public class Missile : MonoBehaviour
 {
     Pool _pool;
     SpriteRenderer _spriteRenderer;
+    [SerializeField] Sprite _kunaiSprite;
+    [SerializeField] Sprite _shurikenSprite;
+    bool _shouldRotate = false;
     float _t;
     Vector2 _p0;
     Vector2 _p1;
     Vector2 _p2;
 
-    public void Init(Vector2 startingPoint, Vector2 intermidiatePoint, Pool pool)
+    private void Awake()
     {
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    public void Init(Vector2 startingPoint, Vector2 intermidiatePoint, Pool pool, bool isPerfect)
+    {
+        if (isPerfect)
+        {
+            _spriteRenderer.sprite = _shurikenSprite;
+            _shouldRotate = true;
+        }
+        else
+        {
+            _spriteRenderer.sprite = _kunaiSprite;
+            _shouldRotate = false;
+        }
+
         this._pool = pool;
-//        _spriteRenderer.enabled = true;
         _t = 0;
         _p0 = startingPoint;
         _p1 = intermidiatePoint;
@@ -25,14 +43,22 @@ public class Missile : MonoBehaviour
     {
         if (_t < 1)
         {
-            _t += Time.deltaTime;
+            _t += Time.deltaTime *2;
             UpdateBossPosition();
             Vector2 wantedPos = LerpPositionBezier();
-            UpdateRotation(wantedPos);
+            if (_shouldRotate)
+                ShurikenRotate();
+            else
+                UpdateRotation(wantedPos);
             transform.position = wantedPos;
         }
         else
             Explode();
+    }
+
+    private void ShurikenRotate()
+    {
+        transform.Rotate(transform.forward * Time.deltaTime * 1000);
     }
 
     private void UpdateRotation(Vector3 point)
@@ -49,14 +75,6 @@ public class Missile : MonoBehaviour
     {
         SoundManager.Instance.PlayexplosionLight();
         BossHp.Instance.TakeDamage(10);
-        //Set child explosion active
-//        _spriteRenderer.enabled = false;
-//        Invoke("BackInPool", 1.5f);
-        BackInPool();
-    }
-
-    private void BackInPool()
-    {
         _pool.Back(gameObject);
     }
 
