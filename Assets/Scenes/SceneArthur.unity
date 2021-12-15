@@ -1669,7 +1669,7 @@ PrefabInstance:
     - target: {fileID: 2028197243122866290, guid: 9fbbf046d499c30458a770585af46978, type: 3}
       propertyPath: hitBoss
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 700811604}
     - target: {fileID: 2028197243122866290, guid: 9fbbf046d499c30458a770585af46978, type: 3}
       propertyPath: _hpDamageBar
       value: 
@@ -1855,6 +1855,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.243019, y: 1.0368927, z: 2}
   m_Center: {x: 0.027374327, y: -0.06843579, z: 0}
+--- !u!95 &700811604
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 700811601}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2280c3b9c6c5a5543937d212f92f0856, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &700811605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5652,6 +5671,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1997659767}
   m_CullTransparentMesh: 1
+--- !u!1 &2111408653 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2804746269683924158, guid: a0797446c1d1cb44caeb10df22435683, type: 3}
+  m_PrefabInstance: {fileID: 2804746270692934330}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2111408656
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2111408653}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9b3d97054f159414f8a5ea79c0b6b25e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2131959945
 GameObject:
   m_ObjectHideFlags: 0
@@ -5701,6 +5744,10 @@ PrefabInstance:
       propertyPath: _hpBar
       value: 
       objectReference: {fileID: 1552045334}
+    - target: {fileID: 2059827657, guid: a0797446c1d1cb44caeb10df22435683, type: 3}
+      propertyPath: animInv
+      value: 
+      objectReference: {fileID: 2111408656}
     - target: {fileID: 2059827657, guid: a0797446c1d1cb44caeb10df22435683, type: 3}
       propertyPath: lostMenu
       value: 
