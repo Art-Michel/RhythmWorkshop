@@ -6,6 +6,7 @@ using UnityEngine;
 public class Missile : MonoBehaviour
 {
     Pool _pool;
+    SpriteRenderer _spriteRenderer;
     float _t;
     Vector2 _p0;
     Vector2 _p1;
@@ -13,7 +14,8 @@ public class Missile : MonoBehaviour
 
     public void Init(Vector2 startingPoint, Vector2 intermidiatePoint, Pool pool)
     {
-        this._pool = pool; 
+        this._pool = pool;
+        _spriteRenderer.enabled = true;
         _t = 0;
         _p0 = startingPoint;
         _p1 = intermidiatePoint;
@@ -47,6 +49,13 @@ public class Missile : MonoBehaviour
     {
         SoundManager.Instance.PlayexplosionLight();
         BossHp.Instance.TakeDamage(10);
+        //Set child explosion active
+        _spriteRenderer.enabled = false;
+        Invoke("BackInPool", 1.5f);
+    }
+
+    private void BackInPool()
+    {
         _pool.Back(gameObject);
     }
 

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9151841809677400619}
   - component: {fileID: 9151841809677400629}
   - component: {fileID: 5167735618117819919}
+  - component: {fileID: 8957084645584204776}
   m_Layer: 0
   m_Name: Missile
   m_TagString: Missile
@@ -212,3 +213,22 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!95 &8957084645584204776
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9151841809677400618}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4245c75a5eaa7be4fb8707333b095b78, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
