@@ -18,68 +18,73 @@ public class SoundManager : LocalManager<SoundManager>
         audioSource.PlayOneShot(clipToPlay);
     }
 
-	public void PlayGoodNote()
+	public void PlayLaunchLaser()
 	{
 		Play(clips[0]);
 	}
 
-	public void PlayLaunchLaser()
+	public void PlayPrelaser()
 	{
 		Play(clips[1]);
 	}
 
-	public void PlayPrelaser()
+	public void PlaybossAttacks()
 	{
 		Play(clips[2]);
 	}
 
-	public void PlaybossAttacks()
+	public void PlaybossAttacks2()
 	{
 		Play(clips[3]);
 	}
 
-	public void PlaybossAttacks2()
+	public void PlaybossGruntLight()
 	{
 		Play(clips[4]);
 	}
 
-	public void PlaybossGruntLight()
+	public void PlayexplosionLight()
 	{
 		Play(clips[5]);
 	}
 
-	public void PlayexplosionLight()
+	public void PlaymissNote()
 	{
 		Play(clips[6]);
 	}
 
-	public void PlaymissNote()
+	public void PlayplayerGetsHit()
 	{
 		Play(clips[7]);
 	}
 
-	public void PlayperfectNote()
+	public void PlayShuriken()
 	{
 		Play(clips[8]);
 	}
 
-	public void PlayplayerGetsHit()
+	public void PlayGoodNote()
 	{
 		Play(clips[9]);
 	}
 
-	public void PlayShuriken()
+	public void PlayLaunchMissile()
 	{
 		Play(clips[10]);
 	}
 
-	public void PlayLaunchMissile()
+	public void PlayStab()
 	{
 		Play(clips[11]);
 	}
 
-	public void PlayStab()
+	public void PlayperfectNote()
 	{
 		Play(clips[12]);
+	}
+
+	public void PlayStartButton()
+	{
+		Play(clips[13]);
 	}
 }

@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneManagerScript : MonoBehaviour
 {
+
+    [SerializeField]GameObject _fadeToBlack;
     public void Menu()
     {
         SceneManager.LoadScene("MenuPrincipal");
@@ -12,11 +14,18 @@ public class SceneManagerScript : MonoBehaviour
 
     public void Game()
     {
-        SceneManager.LoadScene("SceneArthur");
+        SoundManager.Instance.PlayStartButton();
+        _fadeToBlack.SetActive(true);
+        Invoke("LoadGameScene",1.5f);
     }
 
     public void Quit()
     {
         Application.Quit();
+    }
+
+    void LoadGameScene()
+    {
+        SceneManager.LoadScene("SceneArthur");
     }
 }

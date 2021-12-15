@@ -1244,7 +1244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 2126148138437473399, guid: b7c1d132482f9ff49a25ec3dd246dcec, type: 3}
-  baseCount: 130
+  baseCount: 8
 --- !u!4 &530186472 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2804746270233264722, guid: a0797446c1d1cb44caeb10df22435683, type: 3}
@@ -1294,7 +1294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 5091787729806985593, guid: dda16c6665cce5a4587feef178810935, type: 3}
-  baseCount: 130
+  baseCount: 8
 --- !u!1 &556345021
 GameObject:
   m_ObjectHideFlags: 0
@@ -1957,7 +1957,7 @@ PrefabInstance:
       objectReference: {fileID: 1217323535}
     - target: {fileID: 6476517271553404277, guid: 9fbbf046d499c30458a770585af46978, type: 3}
       propertyPath: _maxHP
-      value: 10000
+      value: 1500
       objectReference: {fileID: 0}
     - target: {fileID: 6476517271553404277, guid: 9fbbf046d499c30458a770585af46978, type: 3}
       propertyPath: _hpDamageBar
