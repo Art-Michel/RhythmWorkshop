@@ -27,7 +27,7 @@ public class NotesManager : LocalManager<NotesManager>
     }
 
     [Button]
-    void SpawnNoteNorth()
+    public void SpawnNoteNorth()
     {
         GameObject obj = _pool.Get();
         obj.SetActive(true);
@@ -35,7 +35,7 @@ public class NotesManager : LocalManager<NotesManager>
     }
 
     [Button]
-    void SpawnNoteSouth()
+    public void SpawnNoteSouth()
     {
         GameObject obj = _pool.Get();
         obj.SetActive(true);
@@ -43,7 +43,7 @@ public class NotesManager : LocalManager<NotesManager>
     }
 
     [Button]
-    void SpawnNoteWest()
+    public void SpawnNoteWest()
     {
         GameObject obj = _pool.Get();
         obj.SetActive(true);
@@ -51,7 +51,7 @@ public class NotesManager : LocalManager<NotesManager>
     }
 
     [Button]
-    void SpawnNoteEast()
+    public void SpawnNoteEast()
     {
         GameObject obj = _pool.Get();
         obj.SetActive(true);
