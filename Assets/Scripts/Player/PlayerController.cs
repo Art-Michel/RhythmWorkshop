@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
         _charaCon.Move(_wantedDirection * _speed * _easeInValue * Time.deltaTime);
 
 
-        _playerBody.transform.up = Vector3.Lerp(_playerBody.transform.up, _wantedDirection, 20 * Time.deltaTime);
+        _playerBody.transform.up = Vector3.Lerp(_playerBody.transform.up, _wantedDirection, 22 * Time.deltaTime);
     }
 
     #region disable inputs on Player disable to avoid weird inputs
