@@ -18,6 +18,7 @@ public class PlayerHealth : LocalManager<PlayerHealth>
     [SerializeField] Image _hpBar;
     [SerializeField] GameObject lostMenu;
     [SerializeField] VolumeProfile volume;
+    [SerializeField] Animator animInv;
 
     bool _isInvulnerable;
 
@@ -94,6 +95,7 @@ public class PlayerHealth : LocalManager<PlayerHealth>
     private IEnumerator HandleInvulnerability()
     {
         _isInvulnerable = true;
+        animInv.SetBool("isInvincible", true);
 
         yield return new WaitForSeconds(0.2f);
         _vcamImpulseListener.enabled = false;
@@ -102,6 +104,7 @@ public class PlayerHealth : LocalManager<PlayerHealth>
         yield return new WaitForSeconds(0.8f);
         _vcamImpulseListener.enabled = true;
         _isInvulnerable = false;
+        animInv.SetBool("isInvincible", false);
 
         yield return null;
     }

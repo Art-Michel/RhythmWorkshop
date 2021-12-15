@@ -16,6 +16,7 @@ public class BossHp : LocalManager<BossHp>
 
     [SerializeField] Image _hpBar;
     [SerializeField] Image _hpDamageBar;
+    [SerializeField] Animator hitBoss;
 
     private void Start()
     {
@@ -27,6 +28,7 @@ public class BossHp : LocalManager<BossHp>
     {
         BossHealthPoints -= damageAmount;
         UpdateHPBar();
+        hitBoss.SetTrigger("hitBoss");
         if (BossHealthPoints <= 0)
         {
             GameOver();
