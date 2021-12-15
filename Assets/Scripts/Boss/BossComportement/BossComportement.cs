@@ -96,7 +96,7 @@ public class BossComportement : MonoBehaviour
                 case 1:
                 case 2:
                 case 3:
-                    circleAttack.numberOfProjectiles = 7;
+                    //circleAttack.numberOfProjectiles = 7;
                     StartCoroutine(Circle());
                     maxDelayAttack -= difficultyAdd;
                     break;
@@ -145,7 +145,6 @@ public class BossComportement : MonoBehaviour
 
     IEnumerator Spirale()
     {
-        delayAttack -= maxDelayAttack / 4;
         spiraleAttack.Attack();
 
         yield return new WaitForSeconds(delayAttack);
