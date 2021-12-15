@@ -72,7 +72,7 @@ public class NotesManager : LocalManager<NotesManager>
         note.GetComponent<Note>().InitializeEastNote(_eastSpawner, _notePool);
         GameObject preNote = _preNotePool.Get();
         preNote.SetActive(true);
-        preNote.GetComponent<PreNote>().InitializePreNote(_eastSpawner, _notePool);
+        preNote.GetComponent<PreNote>().InitializePreNote(_eastButton, _notePool);
     }
 
 }
