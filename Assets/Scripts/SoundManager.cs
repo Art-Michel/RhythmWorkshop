@@ -23,37 +23,37 @@ public class SoundManager : LocalManager<SoundManager>
 		Play(clips[0]);
 	}
 
-	public void PlayLaunchMissile()
+	public void PlayLaunchLaser()
 	{
 		Play(clips[1]);
 	}
 
-	public void PlaybossGruntLight()
+	public void PlayPrelaser()
 	{
 		Play(clips[2]);
 	}
 
-	public void PlayexplosionLight()
+	public void PlaybossAttacks()
 	{
 		Play(clips[3]);
 	}
 
-	public void PlayPrelaser()
+	public void PlaybossAttacks2()
 	{
 		Play(clips[4]);
 	}
 
-	public void PlaybossAttacks2()
+	public void PlaybossGruntLight()
 	{
 		Play(clips[5]);
 	}
 
-	public void PlayLaunchLaser()
+	public void PlayexplosionLight()
 	{
 		Play(clips[6]);
 	}
 
-	public void PlaybossAttacks()
+	public void PlaymissNote()
 	{
 		Play(clips[7]);
 	}
@@ -68,8 +68,18 @@ public class SoundManager : LocalManager<SoundManager>
 		Play(clips[9]);
 	}
 
-	public void PlaymissNote()
+	public void PlayShuriken()
 	{
 		Play(clips[10]);
+	}
+
+	public void PlayLaunchMissile()
+	{
+		Play(clips[11]);
+	}
+
+	public void PlayStab()
+	{
+		Play(clips[12]);
 	}
 }

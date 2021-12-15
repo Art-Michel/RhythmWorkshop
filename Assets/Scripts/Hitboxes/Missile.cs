@@ -22,10 +22,12 @@ public class Missile : MonoBehaviour
 
     public void Init(Vector2 startingPoint, Vector2 intermidiatePoint, Pool pool, bool isPerfect)
     {
+        SoundManager.Instance.PlayLaunchMissile();
         if (isPerfect)
         {
             _spriteRenderer.sprite = _shurikenSprite;
             _shouldRotate = true;
+            SoundManager.Instance.Invoke("PlayShuriken",0.05f);
         }
         else
         {
@@ -43,7 +45,7 @@ public class Missile : MonoBehaviour
     {
         if (_t < 1)
         {
-            _t += Time.deltaTime *2;
+            _t += Time.deltaTime * 2.5f;
             UpdateBossPosition();
             Vector2 wantedPos = LerpPositionBezier();
             if (_shouldRotate)
@@ -73,7 +75,7 @@ public class Missile : MonoBehaviour
 
     private void Explode()
     {
-        SoundManager.Instance.PlayexplosionLight();
+        SoundManager.Instance.PlayStab();
         BossHp.Instance.TakeDamage(10);
         _pool.Back(gameObject);
     }

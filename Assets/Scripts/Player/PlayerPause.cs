@@ -29,6 +29,7 @@ public class PlayerPause : MonoBehaviour
     public void Pause()
     {
         Time.timeScale = 0;
+        GameManager.Instance.PauseMusic();
         _isPaused = true;
         _pauseUI.SetActive(true);
         EventSystem.current.SetSelectedGameObject(null);
@@ -38,6 +39,7 @@ public class PlayerPause : MonoBehaviour
     public void Unpause()
     {
         Time.timeScale = 1;
+        GameManager.Instance.PlayMusic();
         _isPaused = false;
         _pauseUI.SetActive(false);
     }

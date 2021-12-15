@@ -37,8 +37,8 @@ public class PlayerNotes : LocalManager<PlayerNotes>
     public Transform _eastNoteResultUIPos;
     public Transform _westNoteResultUIPos;
 
-    readonly float _perfectMaxDistance = 0.06f;
-    readonly float _goodMaxDistance = 0.13f;
+    readonly float _perfectMaxDistance = 0.065f;
+    readonly float _goodMaxDistance = 0.15f;
     readonly float _missMaxDistance = 0.35f;
 
     [Header("Feedback prefabs")]

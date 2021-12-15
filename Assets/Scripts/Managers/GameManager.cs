@@ -1,26 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Timeline;
 using NaughtyAttributes;
+using UnityEngine.Playables;
 
 public class GameManager : LocalManager<GameManager>
 {
+    PlayableDirector _playableDirector;
 
     private void Start() 
     {
         Time.timeScale = 1;
+        _playableDirector = GetComponent<PlayableDirector>();
     }
 
-    [Button]
-    void PlayMusic()
+    public void PlayMusic()
     {
-
+        _playableDirector.Resume();
     }
 
-    [Button]
-    void PauseMusic()
+    public void PauseMusic()
     {
-
+        _playableDirector.Pause();
     }
 
     public void UpInput()
