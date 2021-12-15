@@ -207,7 +207,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 6.071429, y: 37.5}
+  m_Size: {x: 6.071429, y: 143.04}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 1
   m_WasSpriteAssigned: 1
@@ -259,7 +259,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.15
-  speedLazerMove: 0.1
+  speedLazerMove: 0.2
   maxLife: 2
   preLazer: {fileID: 6297973624220275517}
   child: {fileID: 6297973624913786416}

@@ -8,8 +8,11 @@ public class LAZERVert : MonoBehaviour
     float chrono;
     [SerializeField] float maxLife;
     [SerializeField] GameObject child;
+    Transform origin;
+
     [SerializeField] Material alphaChange;
     [SerializeField] float speed;
+    [SerializeField] float speedLazerMove;
     Vector2 moveLazer;
     Material changeMat;
     Color color = new Color();
@@ -18,7 +21,8 @@ public class LAZERVert : MonoBehaviour
     private void Start()
     {
         chrono = maxLife;
-        moveLazer=child.transform.position;
+        origin = child.transform;
+        moveLazer = origin.position;
 
         changeMat = new Material(alphaChange);
         color = changeMat.color;
@@ -33,8 +37,8 @@ public class LAZERVert : MonoBehaviour
         color.a += 1f * Time.deltaTime * speed;
         changeMat.color = color;
 
-        moveLazer.y-=Time.deltaTime;
-        child.transform.position=moveLazer;
+        moveLazer.y -= Time.deltaTime * speedLazerMove;
+        child.transform.position = moveLazer;
         if (chrono <= 0)
         {
             LAZERSpawn();

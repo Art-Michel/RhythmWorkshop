@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8147691881784166231}
-  - component: {fileID: 5760133380299454546}
   - component: {fileID: 3383777754391980054}
-  - component: {fileID: 2772300281403603276}
+  - component: {fileID: 3963616616766034956}
+  - component: {fileID: 1403203385606768475}
   m_Layer: 0
   m_Name: LAZER
   m_TagString: Untagged
@@ -33,18 +33,6 @@ Transform:
   m_Father: {fileID: 9086508429255480198}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!114 &5760133380299454546
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3163757137465180611}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a852a3b8a96e2ee489e898b36718be3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &3383777754391980054
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -90,13 +78,25 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 6.071429, y: 34}
+  m_Size: {x: 6.071429, y: 78.43}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!65 &2772300281403603276
+--- !u!114 &3963616616766034956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3163757137465180611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a852a3b8a96e2ee489e898b36718be3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &1403203385606768475
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,8 +107,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.9999999, y: 16.41, z: 2.2028797}
-  m_Center: {x: 0.18, y: 0, z: 0}
+  m_Size: {x: 0.9008564, y: 78.430046, z: 1.7388808}
+  m_Center: {x: 0.10624838, y: -0.00000017431212, z: -0.15928608}
 --- !u!1 &6605127828190566549
 GameObject:
   m_ObjectHideFlags: 0
@@ -230,6 +230,7 @@ MonoBehaviour:
   child: {fileID: 3163757137465180611}
   alphaChange: {fileID: 2100000, guid: 6d07963fdaceb4249b0ffec5d265bcfc, type: 2}
   speed: 0.15
+  speedLazerMove: 4
 --- !u!114 &3347802202514911
 MonoBehaviour:
   m_ObjectHideFlags: 0
