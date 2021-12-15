@@ -5442,6 +5442,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7979625018203012279, guid: b26e3570e896cf54787e929f535e6941, type: 3}
+      propertyPath: m_WrapMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7979625018203012279, guid: b26e3570e896cf54787e929f535e6941, type: 3}
       propertyPath: m_InitialTime
       value: 0
       objectReference: {fileID: 0}
