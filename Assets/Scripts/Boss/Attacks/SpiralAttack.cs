@@ -23,14 +23,6 @@ public class SpiralAttack : MonoBehaviour
         attackOver = false;
     }
 
-    // private void Update()
-    // {
-    //     if (attackOver == true)
-    //     {
-    //         StopAllCoroutines();
-    //     }
-    // }
-
     IEnumerator Spiral()
     {
         float angleStep = 360f / maxProj;
@@ -63,6 +55,7 @@ public class SpiralAttack : MonoBehaviour
         bulletBoss.transform.position = spawn.position;
         bulletBoss.GetComponent<Bullet>().Spawn(pool);
         bulletBoss.GetComponent<Rigidbody>().velocity = new Vector2(projectileMoveDirection.x, projectileMoveDirection.y);
+        bulletBoss.transform.up=-projectileMoveDirection;
     }
 
     [Button]
