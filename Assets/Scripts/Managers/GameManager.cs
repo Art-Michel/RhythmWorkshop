@@ -8,11 +8,13 @@ using UnityEngine.Playables;
 public class GameManager : LocalManager<GameManager>
 {
     PlayableDirector _playableDirector;
+    PreventLostFocus _preventLostFocus;
 
-    private void Start() 
+    private void Start()
     {
         Time.timeScale = 1;
         _playableDirector = GetComponent<PlayableDirector>();
+        _preventLostFocus = GetComponent<PreventLostFocus>();
     }
 
     public void PlayMusic()
@@ -29,6 +31,11 @@ public class GameManager : LocalManager<GameManager>
     {
         Debug.Log("Up");
         NotesManager.Instance.SpawnNoteNorth();
+    }
+
+    public void PreventLostFocus(bool b)
+    {
+        _preventLostFocus.enabled = b;
     }
 
     public void DownInput()

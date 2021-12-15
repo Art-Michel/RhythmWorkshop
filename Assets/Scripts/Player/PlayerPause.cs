@@ -32,6 +32,7 @@ public class PlayerPause : MonoBehaviour
         GameManager.Instance.PauseMusic();
         _isPaused = true;
         _pauseUI.SetActive(true);
+        GameManager.Instance.PreventLostFocus(true);
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(_pauseFirstButtonSelected);
     }
@@ -41,6 +42,7 @@ public class PlayerPause : MonoBehaviour
         Time.timeScale = 1;
         GameManager.Instance.PlayMusic();
         _isPaused = false;
+        GameManager.Instance.PreventLostFocus(false);
         _pauseUI.SetActive(false);
     }
 

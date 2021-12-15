@@ -72,7 +72,6 @@ public class ScoreManager : LocalManager<ScoreManager>
         _comboUI.text = (_currentCombo.ToString());
         _comboUI.color = RemapColor(0, 50, Color.white, Color.red, _currentCombo);
         _comboUI.fontSize = Remap(0, 30, 24, 56, _currentCombo);
-        Debug.Log("Combo: " + _currentCombo);
     }
 
     public void DisplayGameOverScreen()
@@ -86,6 +85,7 @@ public class ScoreManager : LocalManager<ScoreManager>
             + "Perfects: " + _perfectedNotes + "\n"
             + "Longest Combo: " + _longestCombo
         );
+        GameManager.Instance.PreventLostFocus(true);
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(_gameOverFirstButtonSelected);
     }
@@ -101,6 +101,9 @@ public class ScoreManager : LocalManager<ScoreManager>
             + "Perfects: " + _perfectedNotes + "\n"
             + "Longest Combo: " + _longestCombo
         );
+        GameManager.Instance.PauseMusic();
+        Time.timeScale = 0;
+        GameManager.Instance.PreventLostFocus(true);
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(_winScreenFirstButtonSelected);
     }
