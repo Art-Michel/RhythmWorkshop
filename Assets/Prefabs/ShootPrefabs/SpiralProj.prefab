@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 2353588039716272251}
   - component: {fileID: 7256027840313443962}
   - component: {fileID: -1081681317456485554}
-  - component: {fileID: -57197590400828472}
   - component: {fileID: -4815048126683503857}
+  - component: {fileID: 2802201212750341587}
   m_Layer: 0
   m_Name: SpiralProj
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 3793086198265960782}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.106418975, y: -1.2196057, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 8810148276692766725, guid: 12415afb929b5324ca687076e359b348, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 18ea0867e0f8a3a4596963ebc44c83bc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -137,7 +137,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.2457608
+        value: 0.1779642
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -145,8 +145,8 @@ TrailRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.011608694
-        value: 0.35762906
+        time: 0.007981382
+        value: 0.2474588
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -154,21 +154,21 @@ TrailRenderer:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 0.51379395
+        time: 0.53558093
         value: 0
-        inSlope: 0
-        outSlope: 0
+        inSlope: -1.6145257
+        outSlope: -1.6145257
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0
+        inWeight: 0.32082236
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.26706147, g: 1, b: 0, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0.26706147, g: 1, b: 0, a: 0.9019608}
+      key1: {r: 1, g: 1, b: 1, a: 0.39215687}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -184,8 +184,8 @@ TrailRenderer:
       ctime6: 0
       ctime7: 0
       atime0: 0
-      atime1: 65535
-      atime2: 0
+      atime1: 26407
+      atime2: 65535
       atime3: 0
       atime4: 0
       atime5: 0
@@ -193,7 +193,7 @@ TrailRenderer:
       atime7: 0
       m_Mode: 0
       m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
+      m_NumAlphaKeys: 3
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
@@ -227,19 +227,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a852a3b8a96e2ee489e898b36718be3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!135 &-57197590400828472
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3793086198265960782}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.53
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &-4815048126683503857
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -256,3 +243,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!135 &2802201212750341587
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3793086198265960782}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.26
+  m_Center: {x: 0, y: 0, z: 0}
