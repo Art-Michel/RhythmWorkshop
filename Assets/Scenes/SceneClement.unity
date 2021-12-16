@@ -200,6 +200,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: cf38defa144138d4dbdaa78a34f45db0, type: 2}
     - {fileID: 11400000, guid: b04651c8d39f1a146ac09e0a19ebeacc, type: 2}
     - {fileID: 11400000, guid: 81e967e2491fbec4da484f3da2d9dc67, type: 2}
+    - {fileID: 11400000, guid: 5efd476133b2c5c40bceaf2ff94d7f24, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -248,6 +249,20 @@ MonoBehaviour:
         - m_Target: {fileID: 870629482}
           m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
           m_MethodName: RightInput
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 870629484}
+          m_TargetAssemblyTypeName: TimelineLoop, Assembly-CSharp
+          m_MethodName: Loop
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

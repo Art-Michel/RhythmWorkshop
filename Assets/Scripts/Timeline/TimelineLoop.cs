@@ -11,11 +11,8 @@ public class TimelineLoop : MonoBehaviour
     {
         _playableDirector = GetComponent<PlayableDirector>();
     }
-    void Update()
+    public void Loop()
     {
-        if (_playableDirector.time > 145.88f)
-        {
-            _playableDirector.time = 48.36875f;
-        }
+        _playableDirector.time = 48.36875f;
     }
 }
