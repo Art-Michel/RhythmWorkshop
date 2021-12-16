@@ -5,6 +5,7 @@ using UnityEngine;
 public class TempoManager : MonoBehaviour
 {
     [SerializeField] float bpm;
+    bool boomHp;
     public float maxRate;
     float beatTime;
 
@@ -24,7 +25,11 @@ public class TempoManager : MonoBehaviour
 
         if (beatTime >= maxRate)
         {
-            OnTheBeat();
+            if (boomHp == true)
+            {
+                OnTheBeat();
+            }
+
             beatTime -= maxRate;
         }
     }
@@ -32,5 +37,15 @@ public class TempoManager : MonoBehaviour
     public virtual void OnTheBeat()
     {
         animBossHp.SetTrigger("Boom");
+    }
+
+    public void StartBeat()
+    {
+        boomHp = true;
+    }
+
+    public void StopBeat()
+    {
+        boomHp = false;
     }
 }
