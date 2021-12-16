@@ -77,6 +77,8 @@ public class ScoreManager : LocalManager<ScoreManager>
     public void DisplayGameOverScreen()
     {
         _playerController.enabled = false;
+        SoundManager.Instance.PlayGameOver();
+        GameManager.Instance.PauseMusic();
         _playerPause.enabled = false;
         _gameOverUiParent.SetActive(true);
         _gameOverResults.text = (

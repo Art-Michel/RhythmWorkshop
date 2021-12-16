@@ -51,6 +51,7 @@ public class SpiralAttack : MonoBehaviour
     void SpawnBullet()
     {
         GameObject bulletBoss = pool.Get();
+        SoundManager.Instance.PlayBossShoot();
         bulletBoss.SetActive(true);
         bulletBoss.transform.position = spawn.position;
         bulletBoss.GetComponent<Bullet>().Spawn(pool);

@@ -30,6 +30,7 @@ public class LAZERVertical : TempoManager
     void SpawnBullet()
     {
         LAZERBoss = pool.Get();
+        SoundManager.Instance.PlayBossShoot();
         LAZERBoss.SetActive(true);
         LAZERBoss.transform.position = spawnPoint;
         LAZERBoss.GetComponent<LAZERVert>().Spawn(pool);

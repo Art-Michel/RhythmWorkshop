@@ -55,6 +55,13 @@ public class BossComportement : MonoBehaviour
                 delayAttack = maxDelayAttack;
                 ListAttacks();
             }
+            if (a >= attacksPhase2.Count)
+            {
+                a=0;
+                newAttacks();
+                maxDelayAttack=5;
+                ListAttacks();
+            }
         }
     }
 
