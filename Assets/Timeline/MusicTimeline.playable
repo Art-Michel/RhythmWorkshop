@@ -364,7 +364,7 @@ MonoBehaviour:
   m_Time: 34.8
   m_Retroactive: 0
   m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: 9fd09893d361f184a85aaf227c574e98, type: 2}
+  m_Asset: {fileID: 11400000, guid: 81e967e2491fbec4da484f3da2d9dc67, type: 2}
 --- !u!114 &-8179962442870124756
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1065,7 +1065,7 @@ MonoBehaviour:
   m_Time: 35.2
   m_Retroactive: 0
   m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: 9fd09893d361f184a85aaf227c574e98, type: 2}
+  m_Asset: {fileID: 11400000, guid: 81e967e2491fbec4da484f3da2d9dc67, type: 2}
 --- !u!114 &-6980810711209135146
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4303,7 +4303,7 @@ MonoBehaviour:
   m_Time: 37.1
   m_Retroactive: 0
   m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: 9fd09893d361f184a85aaf227c574e98, type: 2}
+  m_Asset: {fileID: 11400000, guid: 81e967e2491fbec4da484f3da2d9dc67, type: 2}
 --- !u!114 &2061077628935547112
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5350,7 +5350,7 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 1.34
+    m_Start: 0
     m_ClipIn: 0
     m_Asset: {fileID: 4823483354583329629}
     m_Duration: 150
@@ -5872,7 +5872,7 @@ MonoBehaviour:
   m_Time: 38.08
   m_Retroactive: 0
   m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: 9fd09893d361f184a85aaf227c574e98, type: 2}
+  m_Asset: {fileID: 11400000, guid: 81e967e2491fbec4da484f3da2d9dc67, type: 2}
 --- !u!114 &5620992292759228969
 MonoBehaviour:
   m_ObjectHideFlags: 1
