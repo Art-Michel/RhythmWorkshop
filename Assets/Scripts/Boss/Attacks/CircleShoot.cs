@@ -49,7 +49,6 @@ public class CircleShoot : TempoManager
     void SpawnBullet()
     {
         GameObject bulletBoss = pool.Get();
-        SoundManager.Instance.PlayBossShoot();
         bulletBoss.SetActive(true);
         bulletBoss.transform.position = spawn.position;
 
@@ -72,6 +71,7 @@ public class CircleShoot : TempoManager
     {
         if (canAttack == true)
         {
+            SoundManager.Instance.PlayBossShoot();
             SpawnProjectiles(numberOfProjectiles);
         }
     }

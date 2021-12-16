@@ -94,8 +94,7 @@ public class ScoreManager : LocalManager<ScoreManager>
 
     public void DisplayWinScreen()
     {
-        _playerController.enabled = false;
-        _playerPause.enabled = false;
+        _playerController.gameObject.SetActive(false);
         SoundManager.Instance.PlayWinScreenKoto();
         _winScreenUiParent.SetActive(true);
         _winScreenResults.text = (
@@ -105,7 +104,9 @@ public class ScoreManager : LocalManager<ScoreManager>
             + "Longest Combo: " + _longestCombo
         );
         GameManager.Instance.PauseMusic();
-        Time.timeScale = 0;
+        _playerController.enabled = false;
+        _playerPause.enabled = false;
+
         GameManager.Instance.PreventLostFocus(true);
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(_winScreenFirstButtonSelected);

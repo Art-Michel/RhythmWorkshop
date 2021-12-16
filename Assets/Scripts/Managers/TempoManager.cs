@@ -10,7 +10,6 @@ public class TempoManager : MonoBehaviour
     float beatTime;
 
     [SerializeField] Animator animBossHp;
-
     // Start is called before the first frame update
     void Start()
     {
