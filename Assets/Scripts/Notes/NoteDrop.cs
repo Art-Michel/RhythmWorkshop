@@ -38,6 +38,7 @@ public class NoteDrop : MonoBehaviour
     public void StopBeat()
     {
         boomHp = false;
+        a=0;
     }
 
     public void OnTheBeat()
