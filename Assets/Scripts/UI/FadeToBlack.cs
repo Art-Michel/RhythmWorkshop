@@ -9,6 +9,7 @@ public class FadeToBlack : MonoBehaviour
     float t;
     private void Start()
     {
+        gameObject.SetActive(false);
         _image = GetComponent<Image>();
         t= 0;
     }

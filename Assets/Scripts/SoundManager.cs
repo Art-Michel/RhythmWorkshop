@@ -18,67 +18,67 @@ public class SoundManager : LocalManager<SoundManager>
         audioSource.PlayOneShot(clipToPlay);
     }
 
-	public void PlaybossAttacks()
+	public void PlayLaunchLaser()
 	{
 		Play(clips[0]);
 	}
 
-	public void PlaybossAttacks2()
+	public void PlayPrelaser()
 	{
 		Play(clips[1]);
 	}
 
-	public void PlaybossGruntLight()
+	public void PlaybossAttacks()
 	{
 		Play(clips[2]);
 	}
 
-	public void PlayexplosionLight()
+	public void PlaybossAttacks2()
 	{
 		Play(clips[3]);
 	}
 
-	public void PlayGoodNote()
+	public void PlaybossGruntLight()
 	{
 		Play(clips[4]);
 	}
 
-	public void PlayLaunchLaser()
+	public void PlayexplosionLight()
 	{
 		Play(clips[5]);
 	}
 
-	public void PlayLaunchMissile()
+	public void PlaymissNote()
 	{
 		Play(clips[6]);
 	}
 
-	public void PlaymissNote()
+	public void PlayplayerGetsHit()
 	{
 		Play(clips[7]);
 	}
 
-	public void PlayperfectNote()
+	public void PlayShuriken()
 	{
 		Play(clips[8]);
 	}
 
-	public void PlayplayerGetsHit()
+	public void PlayGoodNote()
 	{
 		Play(clips[9]);
 	}
 
-	public void PlayPrelaser()
+	public void PlayLaunchMissile()
 	{
 		Play(clips[10]);
 	}
 
-	public void PlayShuriken()
+	public void PlayStab()
 	{
 		Play(clips[11]);
 	}
 
-	public void PlayStab()
+	public void PlayperfectNote()
 	{
 		Play(clips[12]);
 	}
@@ -88,13 +88,23 @@ public class SoundManager : LocalManager<SoundManager>
 		Play(clips[13]);
 	}
 
-	public void PlayButtonHilight()
+	public void PlayMenuClick()
 	{
 		Play(clips[14]);
 	}
 
-	public void PlayMenuClick()
+	public void PlayButtonHilight()
 	{
 		Play(clips[15]);
+	}
+
+	public void PlayBossShoot()
+	{
+		Play(clips[16]);
+	}
+
+	public void PlayGameOver()
+	{
+		Play(clips[17]);
 	}
 }

@@ -6,7 +6,14 @@ using UnityEngine.SceneManagement;
 public class SceneManagerScript : MonoBehaviour
 {
 
-    [SerializeField] GameObject _fadeToBlack;
+    GameObject _fadeToBlack;
+
+    void Awake()
+    {
+        _fadeToBlack = GameObject.FindWithTag("Find");
+        Time.timeScale = 1;
+    }
+
     public void Menu()
     {
         SceneManager.LoadScene("MenuPrincipal");
@@ -15,8 +22,9 @@ public class SceneManagerScript : MonoBehaviour
     public void Game()
     {
         SoundManager.Instance.PlayStartButton();
-        _fadeToBlack.SetActive(true);
         Invoke("LoadGameScene", 1.5f);
+        if (_fadeToBlack != null)
+            _fadeToBlack.SetActive(true);
     }
 
     public void Quit()
@@ -24,7 +32,7 @@ public class SceneManagerScript : MonoBehaviour
         Application.Quit();
     }
 
-    void LoadGameScene()
+    public void LoadGameScene()
     {
         SceneManager.LoadScene("SceneArthur");
     }

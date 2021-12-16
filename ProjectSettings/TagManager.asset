@@ -12,6 +12,7 @@ TagManager:
   - Projectile
   - Enemy
   - Missile
+  - Find
   layers:
   - Default
   - TransparentFX
