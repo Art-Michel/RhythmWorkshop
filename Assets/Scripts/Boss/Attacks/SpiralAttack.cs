@@ -27,23 +27,28 @@ public class SpiralAttack : MonoBehaviour
     {
         float angleStep = 360f / maxProj;
         float angle = 0f;
-        for (int i = 0; i < maxTurns; i++)
+        
+        if (attackOver == false)
         {
-            for (int j = 0; j <= maxProj - 1; j++)
+            for (int i = 0; i < maxTurns; i++)
             {
-                float projectileDirXposition = startPoint.x + Mathf.Sin((angle * Mathf.PI) / 180);
-                float projectileDirYposition = startPoint.y + Mathf.Cos((angle * Mathf.PI) / 180);
+                for (int j = 0; j <= maxProj - 1; j++)
+                {
+                    float projectileDirXposition = startPoint.x + Mathf.Sin((angle * Mathf.PI) / 180);
+                    float projectileDirYposition = startPoint.y + Mathf.Cos((angle * Mathf.PI) / 180);
 
-                projectileVector = new Vector2(projectileDirXposition, projectileDirYposition);
-                projectileMoveDirection = (projectileVector - startPoint).normalized * moveSpeed;
+                    projectileVector = new Vector2(projectileDirXposition, projectileDirYposition);
+                    projectileMoveDirection = (projectileVector - startPoint).normalized * moveSpeed;
 
-                SpawnBullet();
+                    SpawnBullet();
 
-                angle += angleStep;
-                yield return new WaitForSeconds(maxSpeed);
+                    angle += angleStep;
+                    yield return new WaitForSeconds(maxSpeed);
+                }
+                angle += 15;
             }
-            angle+=15;
         }
+
         attackOver = true;
         yield return null;
     }
@@ -56,13 +61,13 @@ public class SpiralAttack : MonoBehaviour
         bulletBoss.transform.position = spawn.position;
         bulletBoss.GetComponent<Bullet>().Spawn(pool);
         bulletBoss.GetComponent<Rigidbody>().velocity = new Vector2(projectileMoveDirection.x, projectileMoveDirection.y);
-        bulletBoss.transform.up=-projectileMoveDirection;
+        bulletBoss.transform.up = -projectileMoveDirection;
     }
 
     [Button]
     public void Attack()
     {
-        attackOver=false;
+        attackOver = false;
         StartCoroutine(Spiral());
     }
 

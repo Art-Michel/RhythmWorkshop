@@ -2305,6 +2305,10 @@ PrefabInstance:
       value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 6476517271553404279, guid: 9fbbf046d499c30458a770585af46978, type: 3}
+      propertyPath: maxDelayAttack
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6476517271553404279, guid: 9fbbf046d499c30458a770585af46978, type: 3}
       propertyPath: attacksPhase1.Array.size
       value: 12
       objectReference: {fileID: 0}

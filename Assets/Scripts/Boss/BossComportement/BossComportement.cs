@@ -26,11 +26,6 @@ public class BossComportement : MonoBehaviour
         newAttacks();
     }
 
-    private void Update()
-    {
-        maxDelayAttack = Mathf.Clamp(maxDelayAttack, 2, 10);
-    }
-
     [Button]
     public void Attacks()
     {
@@ -57,9 +52,9 @@ public class BossComportement : MonoBehaviour
             }
             if (a >= attacksPhase2.Count)
             {
-                a=0;
+                a = 0;
                 newAttacks();
-                maxDelayAttack=5;
+                maxDelayAttack = 5;
                 ListAttacks();
             }
         }
@@ -83,7 +78,7 @@ public class BossComportement : MonoBehaviour
                     StartCoroutine(Circle());
                     break;
                 case 2:
-                    StartCoroutine(Spirale());
+                    StartCoroutine(SpiraleAttack());
                     break;
                 case 3:
                     StartCoroutine(MidLazer());
@@ -103,21 +98,13 @@ public class BossComportement : MonoBehaviour
                 case 1:
                 case 2:
                 case 3:
-                    //circleAttack.numberOfProjectiles = 7;
                     StartCoroutine(Circle());
                     maxDelayAttack -= difficultyAdd;
                     break;
-
-                case 4:
-                    StartCoroutine(Circle());
-                    StartCoroutine(Spirale());
-                    maxDelayAttack -= difficultyAdd;
-                    break;
-
                 case 5:
                 case 6:
                 case 7:
-                    StartCoroutine(Spirale());
+                    StartCoroutine(SpiraleAttack());
                     maxDelayAttack -= difficultyAdd;
                     break;
 
@@ -127,6 +114,7 @@ public class BossComportement : MonoBehaviour
                     break;
 
                 case 9:
+                case 4:
                     StartCoroutine(VertLazer());
                     maxDelayAttack -= difficultyAdd;
                     break;
@@ -144,13 +132,13 @@ public class BossComportement : MonoBehaviour
         yield return new WaitForSeconds(delayAttack);
 
         circleAttack.Stop();
-        StopCoroutine(Circle());
         a++;
         Attacks();
+        StopCoroutine(Circle());
         yield return null;
     }
 
-    IEnumerator Spirale()
+    IEnumerator SpiraleAttack()
     {
         spiraleAttack.Attack();
 
