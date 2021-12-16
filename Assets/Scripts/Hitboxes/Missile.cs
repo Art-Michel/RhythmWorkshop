@@ -76,6 +76,7 @@ public class Missile : MonoBehaviour
     private void Explode()
     {
         SoundManager.Instance.PlayStab();
+        gameObject.SetActive(false);
         BossHp.Instance.TakeDamage(10);
         _pool.Back(gameObject);
     }

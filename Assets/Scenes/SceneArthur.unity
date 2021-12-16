@@ -1129,7 +1129,7 @@ MonoBehaviour:
   _winScreenUiParent: {fileID: 1799793128}
   _winScreenResults: {fileID: 90615325}
   _winScreenFirstButtonSelected: {fileID: 1471179180}
-  _winScreenFinalScore: {fileID: 0}
+  _winScreenFinalScore: {fileID: 613047332}
 --- !u!4 &466737380
 Transform:
   m_ObjectHideFlags: 0
@@ -2294,7 +2294,7 @@ PrefabInstance:
       objectReference: {fileID: 1217323535}
     - target: {fileID: 6476517271553404277, guid: 9fbbf046d499c30458a770585af46978, type: 3}
       propertyPath: _maxHP
-      value: 2325
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6476517271553404277, guid: 9fbbf046d499c30458a770585af46978, type: 3}
       propertyPath: _hpDamageBar

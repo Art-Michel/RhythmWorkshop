@@ -39,8 +39,8 @@ public class BossHp : LocalManager<BossHp>
 
     void GameOver()
     {
-        ScoreManager.Instance.DisplayWinScreen();
         gameObject.SetActive(false);
+        ScoreManager.Instance.DisplayWinScreen();
     }
 
     private void UpdateHPBar()
