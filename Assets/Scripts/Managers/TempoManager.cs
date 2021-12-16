@@ -5,7 +5,7 @@ using UnityEngine;
 public class TempoManager : MonoBehaviour
 {
     [SerializeField] float bpm;
-    bool boomHp;
+    public bool boomHp;
     public float maxRate;
     float beatTime;
 
