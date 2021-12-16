@@ -96,6 +96,7 @@ public class ScoreManager : LocalManager<ScoreManager>
     {
         _playerController.enabled = false;
         _playerPause.enabled = false;
+        SoundManager.Instance.PlayWinScreenKoto();
         _winScreenUiParent.SetActive(true);
         _winScreenResults.text = (
             "Misses: " + _missedNotes + "\n"
