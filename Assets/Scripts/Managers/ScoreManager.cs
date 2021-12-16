@@ -18,6 +18,7 @@ public class ScoreManager : LocalManager<ScoreManager>
     [SerializeField] GameObject _winScreenUiParent;
     [SerializeField] TextMeshProUGUI _winScreenResults;
     [SerializeField] GameObject _winScreenFirstButtonSelected;
+    [SerializeField] TextMeshProUGUI _winScreenFinalScore;
 
     float _missedNotes = 0;
     float _goodedNotes = 0;
@@ -103,6 +104,7 @@ public class ScoreManager : LocalManager<ScoreManager>
             + "Perfects: " + _perfectedNotes + "\n"
             + "Longest Combo: " + _longestCombo
         );
+        _winScreenFinalScore.text = ("FINAL SCORE:\n" + _score);
         GameManager.Instance.PauseMusic();
         _playerController.enabled = false;
         _playerPause.enabled = false;
