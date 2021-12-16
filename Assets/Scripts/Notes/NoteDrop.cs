@@ -42,24 +42,27 @@ public class NoteDrop : MonoBehaviour
 
     public void OnTheBeat()
     {
-        switch (noteList[a])
+        if (a < noteList.Count)
         {
-            case 1:
-                notesManager.SpawnNoteNorth();
-                a++;
-                break;
-            case 2:
-                notesManager.SpawnNoteSouth();
-                a++;
-                break;
-            case 3:
-                notesManager.SpawnNoteEast();
-                a++;
-                break;
-            case 4:
-                notesManager.SpawnNoteWest();
-                a++;
-                break;
+            switch (noteList[a])
+            {
+                case 1:
+                    notesManager.SpawnNoteNorth();
+                    a++;
+                    break;
+                case 2:
+                    notesManager.SpawnNoteSouth();
+                    a++;
+                    break;
+                case 3:
+                    notesManager.SpawnNoteEast();
+                    a++;
+                    break;
+                case 4:
+                    notesManager.SpawnNoteWest();
+                    a++;
+                    break;
+            }
         }
     }
 }
