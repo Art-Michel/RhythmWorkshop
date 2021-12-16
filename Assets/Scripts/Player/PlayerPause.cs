@@ -30,6 +30,7 @@ public class PlayerPause : MonoBehaviour
     {
         Time.timeScale = 0;
         GameManager.Instance.PauseMusic();
+        SoundManager.Instance.PlayPause();
         _isPaused = true;
         _pauseUI.SetActive(true);
         GameManager.Instance.PreventLostFocus(true);

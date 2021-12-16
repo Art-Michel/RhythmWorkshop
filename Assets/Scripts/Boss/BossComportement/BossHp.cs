@@ -34,7 +34,7 @@ public class BossHp : LocalManager<BossHp>
             GameOver();
         }
         tookDamage = true;
-        SoundManager.Instance.PlaybossGruntLight();
+        SoundManager.Instance.PlaybossAttacks2();
     }
 
     void GameOver()

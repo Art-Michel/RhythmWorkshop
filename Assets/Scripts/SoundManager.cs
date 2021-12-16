@@ -93,12 +93,12 @@ public class SoundManager : LocalManager<SoundManager>
 		Play(clips[14]);
 	}
 
-	public void PlayPrelaser()
+	public void PlayLaunchLaser()
 	{
 		Play(clips[15]);
 	}
 
-	public void PlayLaunchLaser()
+	public void PlayPrelaser()
 	{
 		Play(clips[16]);
 	}
@@ -111,5 +111,10 @@ public class SoundManager : LocalManager<SoundManager>
 	public void PlayWinScreenKoto()
 	{
 		Play(clips[18]);
+	}
+
+	public void PlayPause()
+	{
+		Play(clips[19]);
 	}
 }
