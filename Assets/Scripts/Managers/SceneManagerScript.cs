@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneManagerScript : MonoBehaviour
 {
 
-    [SerializeField]GameObject _fadeToBlack;
+    [SerializeField] GameObject _fadeToBlack;
     public void Menu()
     {
         SceneManager.LoadScene("MenuPrincipal");
@@ -16,7 +16,7 @@ public class SceneManagerScript : MonoBehaviour
     {
         SoundManager.Instance.PlayStartButton();
         _fadeToBlack.SetActive(true);
-        Invoke("LoadGameScene",1.5f);
+        Invoke("LoadGameScene", 1.5f);
     }
 
     public void Quit()
@@ -27,5 +27,14 @@ public class SceneManagerScript : MonoBehaviour
     void LoadGameScene()
     {
         SceneManager.LoadScene("SceneArthur");
+    }
+
+    public void OnHover()
+    {
+        SoundManager.Instance.PlayButtonHilight();
+    }
+    public void Click()
+    {
+        SoundManager.Instance.PlayMenuClick();
     }
 }

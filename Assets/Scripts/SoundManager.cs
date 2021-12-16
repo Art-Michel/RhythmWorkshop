@@ -87,4 +87,14 @@ public class SoundManager : LocalManager<SoundManager>
 	{
 		Play(clips[13]);
 	}
+
+	public void PlayButtonHilight()
+	{
+		Play(clips[14]);
+	}
+
+	public void PlayMenuClick()
+	{
+		Play(clips[15]);
+	}
 }
