@@ -1982,7 +1982,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6476517271553404279, guid: 9fbbf046d499c30458a770585af46978, type: 3}
       propertyPath: attacksPhase1.Array.size
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 6476517271553404279, guid: 9fbbf046d499c30458a770585af46978, type: 3}
       propertyPath: attacksPhase2.Array.size
@@ -2014,7 +2014,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6476517271553404279, guid: 9fbbf046d499c30458a770585af46978, type: 3}
       propertyPath: attacksPhase1.Array.data[11]
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6476517271553404279, guid: 9fbbf046d499c30458a770585af46978, type: 3}
       propertyPath: attacksPhase1.Array.data[12]
@@ -5633,7 +5633,7 @@ PrefabInstance:
     - target: {fileID: 7979625018203012277, guid: b26e3570e896cf54787e929f535e6941, type: 3}
       propertyPath: m_Events.m_Events.Array.data[9].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1297549934}
+      objectReference: {fileID: 2050635618}
     - target: {fileID: 7979625018203012277, guid: b26e3570e896cf54787e929f535e6941, type: 3}
       propertyPath: m_Events.m_Events.Array.data[10].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -5692,7 +5692,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7979625018203012277, guid: b26e3570e896cf54787e929f535e6941, type: 3}
       propertyPath: m_Events.m_Events.Array.data[9].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: StartBeat
+      value: Attacks
       objectReference: {fileID: 0}
     - target: {fileID: 7979625018203012277, guid: b26e3570e896cf54787e929f535e6941, type: 3}
       propertyPath: m_Events.m_Events.Array.data[10].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -5724,7 +5724,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7979625018203012277, guid: b26e3570e896cf54787e929f535e6941, type: 3}
       propertyPath: m_Events.m_Events.Array.data[9].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: NoteDrop, Assembly-CSharp
+      value: BossComportement, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7979625018203012277, guid: b26e3570e896cf54787e929f535e6941, type: 3}
       propertyPath: m_Events.m_Events.Array.data[10].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
