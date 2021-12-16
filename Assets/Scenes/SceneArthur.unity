@@ -2009,7 +2009,8 @@ PrefabInstance:
       propertyPath: centerMap
       value: 
       objectReference: {fileID: 362757751}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6476517270206563886, guid: 9fbbf046d499c30458a770585af46978, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9fbbf046d499c30458a770585af46978, type: 3}
 --- !u!1 &740644089
 GameObject:
@@ -3849,7 +3850,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.489
   m_Pitch: 1
   Loop: 0
   Mute: 0

@@ -67,7 +67,7 @@ public class LAZER : MonoBehaviour
 
     void LAZERSpawn()
     {
-        SoundManager.Instance.PlayLaunchLaser();
         child.SetActive(true);
+        SoundManager.Instance.PlayLaunchLaser();
     }
 }

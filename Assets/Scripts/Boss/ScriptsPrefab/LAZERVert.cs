@@ -23,6 +23,7 @@ public class LAZERVert : MonoBehaviour
         chrono = maxLife;
         origin = child.transform;
         moveLazer = origin.position;
+        SoundManager.Instance.PlayPrelaser();
 
         changeMat = new Material(alphaChange);
         color = changeMat.color;
@@ -65,5 +66,6 @@ public class LAZERVert : MonoBehaviour
     void LAZERSpawn()
     {
         child.SetActive(true);
+        SoundManager.Instance.PlayLaunchLaser();
     }
 }
