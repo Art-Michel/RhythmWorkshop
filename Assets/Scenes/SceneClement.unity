@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 870629487}
   - component: {fileID: 870629486}
   - component: {fileID: 870629485}
+  - component: {fileID: 870629484}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -169,6 +170,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &870629484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 870629481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00d07000e195a944b8faa25fde366df8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &870629485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -349,7 +362,7 @@ PlayableDirector:
   m_GameObject: {fileID: 870629481}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 8761dd168a578284ba755fd0c3465bf0, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 6df61fbcb213c3f4b901248306a8e7d1, type: 2}
   m_InitialState: 1
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -359,6 +372,10 @@ PlayableDirector:
     value: {fileID: 870629481}
   - key: {fileID: 4739737476026097302, guid: 8761dd168a578284ba755fd0c3465bf0, type: 2}
     value: {fileID: 870629486}
+  - key: {fileID: -7676387073273871631, guid: 6df61fbcb213c3f4b901248306a8e7d1, type: 2}
+    value: {fileID: 870629481}
+  - key: {fileID: -1625670798989746267, guid: 6df61fbcb213c3f4b901248306a8e7d1, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!1 &917243924
