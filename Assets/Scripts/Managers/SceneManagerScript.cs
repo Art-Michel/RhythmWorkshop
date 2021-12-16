@@ -1,12 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class SceneManagerScript : MonoBehaviour
 {
 
     GameObject _fadeToBlack;
+    [SerializeField] GameObject creditText;
+    [SerializeField] GameObject menuText;
+    [SerializeField] GameObject buttonPlay;
+    [SerializeField] GameObject buttonMenu;
 
     void Awake()
     {
@@ -44,6 +49,20 @@ public class SceneManagerScript : MonoBehaviour
     public void Click()
     {
         SoundManager.Instance.PlayMenuClick();
+    }
+
+    public void Credits()
+    {
+        EventSystem.current.SetSelectedGameObject(buttonMenu);
+        menuText.SetActive(false);
+        creditText.SetActive(true);
+    }
+
+    public void OutCredits()
+    {
+        EventSystem.current.SetSelectedGameObject(buttonPlay);
+        menuText.SetActive(true);
+        creditText.SetActive(false);
     }
 
     public void CreditsHyperlink()
