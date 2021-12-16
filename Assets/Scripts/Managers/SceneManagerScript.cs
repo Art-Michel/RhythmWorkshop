@@ -37,4 +37,9 @@ public class SceneManagerScript : MonoBehaviour
     {
         SoundManager.Instance.PlayMenuClick();
     }
+
+    public void CreditsHyperlink()
+    {
+        Application.OpenURL("https://www.youtube.com/channel/UCwHQ93ecuoQne93sgY-x8Nw");
+    }
 }
