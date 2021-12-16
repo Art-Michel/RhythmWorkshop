@@ -27,16 +27,21 @@ public class TempoManager : MonoBehaviour
         {
             if (boomHp == true)
             {
-                OnTheBeat();
+                AnimOnTheBeat();
             }
-
+            OnTheBeat();
             beatTime -= maxRate;
         }
     }
 
-    public virtual void OnTheBeat()
+    public void AnimOnTheBeat()
     {
         animBossHp.SetTrigger("Boom");
+    }
+
+    public virtual void OnTheBeat()
+    {
+
     }
 
     public void StartBeat()
