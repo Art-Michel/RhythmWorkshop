@@ -32,7 +32,7 @@ public class BossComportement : MonoBehaviour
     }
 
     [Button]
-    void Attacks()
+    public void Attacks()
     {
         if (phase == 1)
         {
@@ -161,7 +161,6 @@ public class BossComportement : MonoBehaviour
     {
         Debug.Log("attacks");
         lazerMid.Attack();
-        delayAttack -= maxDelayAttack / 3;
         yield return new WaitForSeconds(delayAttack);
         a++;
         Attacks();
