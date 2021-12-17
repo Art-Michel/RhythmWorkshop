@@ -2261,6 +2261,10 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6476517270337930725, guid: 9fbbf046d499c30458a770585af46978, type: 3}
+      propertyPath: maxTurns
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6476517270337930725, guid: 9fbbf046d499c30458a770585af46978, type: 3}
       propertyPath: moveSpeed
       value: 2.5
       objectReference: {fileID: 0}
@@ -2278,7 +2282,7 @@ PrefabInstance:
       objectReference: {fileID: 604213421}
     - target: {fileID: 6476517271427618420, guid: 9fbbf046d499c30458a770585af46978, type: 3}
       propertyPath: numberOfProjectiles
-      value: 5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6476517271553404275, guid: 9fbbf046d499c30458a770585af46978, type: 3}
       propertyPath: m_RootOrder
@@ -2294,7 +2298,7 @@ PrefabInstance:
       objectReference: {fileID: 1217323535}
     - target: {fileID: 6476517271553404277, guid: 9fbbf046d499c30458a770585af46978, type: 3}
       propertyPath: _maxHP
-      value: 1
+      value: 1500
       objectReference: {fileID: 0}
     - target: {fileID: 6476517271553404277, guid: 9fbbf046d499c30458a770585af46978, type: 3}
       propertyPath: _hpDamageBar
@@ -2303,6 +2307,10 @@ PrefabInstance:
     - target: {fileID: 6476517271553404278, guid: 9fbbf046d499c30458a770585af46978, type: 3}
       propertyPath: m_SortingOrder
       value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6476517271553404279, guid: 9fbbf046d499c30458a770585af46978, type: 3}
+      propertyPath: difficultyAdd
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 6476517271553404279, guid: 9fbbf046d499c30458a770585af46978, type: 3}
       propertyPath: maxDelayAttack
