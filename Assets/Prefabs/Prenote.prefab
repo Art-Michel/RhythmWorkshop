@@ -95,3 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c995e64672c4fdb49831932e9e7fce5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _prenoteNorthSprite: {fileID: 21300000, guid: 5278bc906cc34cf45a2d5b81432d3db8, type: 3}
+  _prenoteSouthSprite: {fileID: 21300000, guid: da68af785f59b7341b59887f95381378, type: 3}
+  _prenoteEastSprite: {fileID: 21300000, guid: 0d54b872746b3c748b92eb32b9c4af9b, type: 3}
+  _prenoteWestSprite: {fileID: 21300000, guid: db1d0e6d5b70b774fb552391b9ad6713, type: 3}
