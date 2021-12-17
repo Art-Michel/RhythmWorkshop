@@ -2262,19 +2262,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6476517270337930725, guid: 9fbbf046d499c30458a770585af46978, type: 3}
       propertyPath: maxTurns
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6476517270337930725, guid: 9fbbf046d499c30458a770585af46978, type: 3}
       propertyPath: moveSpeed
-      value: 2.5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6476517271427618420, guid: 9fbbf046d499c30458a770585af46978, type: 3}
       propertyPath: pool
       value: 
       objectReference: {fileID: 1491860935}
     - target: {fileID: 6476517271427618420, guid: 9fbbf046d499c30458a770585af46978, type: 3}
+      propertyPath: maxRate
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6476517271427618420, guid: 9fbbf046d499c30458a770585af46978, type: 3}
       propertyPath: moveSpeed
-      value: 1.5
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 6476517271427618420, guid: 9fbbf046d499c30458a770585af46978, type: 3}
       propertyPath: animBossHp
@@ -2310,7 +2314,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6476517271553404279, guid: 9fbbf046d499c30458a770585af46978, type: 3}
       propertyPath: difficultyAdd
-      value: 0.05
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6476517271553404279, guid: 9fbbf046d499c30458a770585af46978, type: 3}
       propertyPath: maxDelayAttack

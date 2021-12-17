@@ -43,7 +43,7 @@ public class CircleShoot : TempoManager
             SpawnBullet();
             angle += angleStep;
         }
-        angle += 15;
+        angle += 25;
     }
 
     void SpawnBullet()
