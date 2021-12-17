@@ -23,7 +23,7 @@ public class PlayerHealth : LocalManager<PlayerHealth>
     bool _isInvulnerable;
 
     float _healthRegenCooldown;
-    float _healthRegenSpeed = 0.5f;
+    float _healthRegenSpeed = 0.09f;
 
     private void Start()
     {
@@ -52,7 +52,7 @@ public class PlayerHealth : LocalManager<PlayerHealth>
             PlayerHP -= damageAmount;
             UpdateHPBar();
             SoundManager.Instance.PlayplayerGetsHit();
-            _healthRegenCooldown = 2.5f;
+            _healthRegenCooldown = 5;
             ScoreManager.Instance.GetHit();
             StartCoroutine("HandleInvulnerability");
             if (PlayerHP <= 0)
