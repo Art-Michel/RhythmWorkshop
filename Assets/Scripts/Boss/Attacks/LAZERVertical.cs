@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using NaughtyAttributes;
 
-public class LAZERVertical : TempoManager
+public class LAZERVertical : MonoBehaviour
 {
     [SerializeField] Pool pool;
     [SerializeField] Transform spawnOrigin;
@@ -24,13 +24,12 @@ public class LAZERVertical : TempoManager
     {
         spawnPoint = spawnOrigin.position;
         attackOver = false;
-        spawnRate = maxRate;
+        //spawnRate = maxRate;
     }
 
     void SpawnBullet()
     {
         LAZERBoss = pool.Get();
-        SoundManager.Instance.PlayBossShoot();
         LAZERBoss.SetActive(true);
         LAZERBoss.transform.position = spawnPoint;
         LAZERBoss.GetComponent<LAZERVert>().Spawn(pool);
@@ -45,18 +44,16 @@ public class LAZERVertical : TempoManager
             SpawnBullet();
             spawnPoint += addPos;
 
-            yield return new WaitForSeconds(spawnRate);
-            StartCoroutine(ReturnLazer());
+            yield return new WaitForSeconds(0.2f);
+            Invoke("ReturnLazer",despawn);
         }
         yield return null;
     }
 
-    IEnumerator ReturnLazer()
+    void ReturnLazer()
     {
         if (listLazer != null)
         {
-            yield return new WaitForSeconds(despawn);
-
             listLazer[0].GetComponent<LAZERVert>().Return(pool);
             listLazer.RemoveAt(0);
 
@@ -67,7 +64,6 @@ public class LAZERVertical : TempoManager
                 StopAllCoroutines();
             }
         }
-        yield return null;
     }
 
     public void Attack()

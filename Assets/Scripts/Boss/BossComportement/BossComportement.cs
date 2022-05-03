@@ -156,7 +156,7 @@ public class BossComportement : MonoBehaviour
     {
         Debug.Log("attacks");
         lazerMid.Attack();
-        yield return new WaitForSeconds(delayAttack);
+        yield return new WaitForSeconds(delayAttack/2);
         a++;
         Attacks();
         StopCoroutine(MidLazer());
@@ -165,7 +165,7 @@ public class BossComportement : MonoBehaviour
     IEnumerator VertLazer()
     {
         lazerVert.Attack();
-        yield return new WaitForSeconds(delayAttack);
+        yield return new WaitForSeconds(delayAttack/2);
 
         a++;
         Attacks();

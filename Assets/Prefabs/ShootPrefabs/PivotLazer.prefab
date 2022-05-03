@@ -231,7 +231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.15
   speedLazerMove: 0.2
-  maxLife: 2
+  maxLife: 1
   moveLazer: {x: 0, y: 0}
   preLazer: {fileID: 3855249609563509396}
   child: {fileID: 6396669157331741487}

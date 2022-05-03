@@ -27,7 +27,7 @@ public class SpiralAttack : MonoBehaviour
     {
         float angleStep = 360f / maxProj;
         float angle = 0f;
-        
+
         if (attackOver == false)
         {
             for (int i = 0; i < maxTurns; i++)
